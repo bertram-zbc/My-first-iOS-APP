@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Trace
 //
-//  Created by Apple on 2016/12/7.
+//  Created by Bertram on 2016/12/7.
 //  Copyright © 2016年 Apple. All rights reserved.
 //
 
