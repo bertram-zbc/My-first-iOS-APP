@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1872E6B61DF93CAC00A71E7D /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872E6B51DF93CAC00A71E7D /* PhotoView.swift */; };
+		1872E6B81DF93CC900A71E7D /* PhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1872E6B71DF93CC900A71E7D /* PhotoView.xib */; };
 		18BD8B7E1DF7A822001F32CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BD8B7D1DF7A822001F32CC /* AppDelegate.swift */; };
 		18BD8B801DF7A822001F32CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BD8B7F1DF7A822001F32CC /* ViewController.swift */; };
 		18BD8B831DF7A822001F32CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18BD8B811DF7A822001F32CC /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1872E6B51DF93CAC00A71E7D /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		1872E6B71DF93CC900A71E7D /* PhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoView.xib; sourceTree = "<group>"; };
 		18BD8B7A1DF7A822001F32CC /* Trace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BD8B7D1DF7A822001F32CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18BD8B7F1DF7A822001F32CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				18BD8BA11DF7B067001F32CC /* NotePaper.swift */,
+				1872E6B51DF93CAC00A71E7D /* PhotoView.swift */,
+				1872E6B71DF93CC900A71E7D /* PhotoView.xib */,
 				18BD8B7D1DF7A822001F32CC /* AppDelegate.swift */,
 				18BD8B7F1DF7A822001F32CC /* ViewController.swift */,
 				18BD8B811DF7A822001F32CC /* Main.storyboard */,
@@ -149,6 +155,7 @@
 				TargetAttributes = {
 					18BD8B791DF7A822001F32CC = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = DV6WT8JT69;
 						ProvisioningStyle = Automatic;
 					};
 					18BD8B8D1DF7A822001F32CC = {
@@ -185,6 +192,7 @@
 				18BD8B881DF7A822001F32CC /* LaunchScreen.storyboard in Resources */,
 				18BD8B851DF7A822001F32CC /* Assets.xcassets in Resources */,
 				18BD8B831DF7A822001F32CC /* Main.storyboard in Resources */,
+				1872E6B81DF93CC900A71E7D /* PhotoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +213,7 @@
 				18BD8B801DF7A822001F32CC /* ViewController.swift in Sources */,
 				18BD8BA21DF7B067001F32CC /* NotePaper.swift in Sources */,
 				18BD8B7E1DF7A822001F32CC /* AppDelegate.swift in Sources */,
+				1872E6B61DF93CAC00A71E7D /* PhotoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +350,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DV6WT8JT69;
 				INFOPLIST_FILE = Trace/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.edu.nju.bertram.Trace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,7 +364,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DV6WT8JT69;
 				INFOPLIST_FILE = Trace/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.edu.nju.bertram.Trace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -406,6 +419,7 @@
 				18BD8B991DF7A822001F32CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18BD8B9A1DF7A822001F32CC /* Build configuration list for PBXNativeTarget "TraceUITests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +428,7 @@
 				18BD8B9C1DF7A822001F32CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
