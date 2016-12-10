@@ -18,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
 //        window = UIWindow(frame: UIScreen.main.bounds)
-//        let myvc = NotePaper(nibName: "NotePaper", bundle: nil)
+//        let myvc = LoginViewController(nibName: "LoginViewController", bundle: nil)
 //        window?.rootViewController = myvc
 //        window?.makeKeyAndVisible()
-//        
+//
         return true
     }
 

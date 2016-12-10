@@ -13,23 +13,35 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setTextFieldBound() //设置textfiled文字与边框距离
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    var checkTag = false //标记是否选中
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBOutlet var userName: UITextField!
+    @IBOutlet var passWord: UITextField!
+    @IBOutlet var rememberImage: UIImageView!
+    
+    func setTextFieldBound(){
+        
+        //在textfield左边加入一个view的方式设置左边界距离
+        let leftView = UIView.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        userName.leftView = leftView
+        userName.leftViewMode = UITextFieldViewMode.always//模式为始终可见
+        
+        passWord.leftView = leftView
+        passWord.leftViewMode = UITextFieldViewMode.always
+        
     }
-    */
 
+    @IBAction func isCheck(_ sender: UITapGestureRecognizer) {
+        if checkTag {
+            //已经选中，改为没选中
+            rememberImage.image = UIImage(named: "uncheck")
+            checkTag = false
+        }else{
+            rememberImage.image = UIImage(named: "check")
+            checkTag = true
+        }
+    }
 }
