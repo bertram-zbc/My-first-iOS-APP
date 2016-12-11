@@ -79,6 +79,29 @@
                                 <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="idea" translatesAutoresizingMaskIntoConstraints="NO" id="pgh-PZ-yQd">
+                                <rect key="frame" x="23" y="587" width="67" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ieg-kz-986">
+                                <rect key="frame" x="311" y="433" width="64" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
+                                <state key="normal" title="  注册" backgroundImage="tag">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="aTb-6j-iUd" kind="show" id="CZ7-Bd-DJj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UU-yP-8Hw">
+                                <rect key="frame" x="284" y="490" width="91" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
+                                <state key="normal" title="    忘记密码" backgroundImage="tag">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -97,8 +120,98 @@
             </objects>
             <point key="canvasLocation" x="-348" y="-240.62968515742131"/>
         </scene>
+        <!--Register View Controller-->
+        <scene sceneID="bNy-y9-RZf">
+            <objects>
+                <viewController id="aTb-6j-iUd" customClass="RegisterViewController" customModule="Trace" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ATx-5N-RTw"/>
+                        <viewControllerLayoutGuide type="bottom" id="eoa-Kp-sAY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P0W-tB-Gpn" customClass="NotePaper" customModule="Trace" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="your name" textAlignment="natural" minimumFontSize="17" background="textside" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7Qq-0U-4yQ">
+                                <rect key="frame" x="82" y="142" width="210" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgl-Pb-g6Q">
+                                <rect key="frame" x="82" y="119" width="69" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" background="textside" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vXk-56-To5">
+                                <rect key="frame" x="82" y="222" width="210" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20Z-k2-jMi">
+                                <rect key="frame" x="82" y="199" width="52" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="确认密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b92-dA-Rs7">
+                                <rect key="frame" x="82" y="279" width="85" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password again" textAlignment="natural" minimumFontSize="17" background="textside" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-MG-OCM">
+                                <rect key="frame" x="82" y="302" width="210" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWB-r5-TLl">
+                                <rect key="frame" x="139" y="383" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
+                                <state key="normal" title="注册" backgroundImage="textside">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerButtonClick:" destination="aTb-6j-iUd" eventType="touchUpInside" id="xia-46-guW"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="PBN-LN-S6o">
+                                <rect key="frame" x="291" y="582" width="68" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plane" translatesAutoresizingMaskIntoConstraints="NO" id="YVE-eZ-XUy">
+                                <rect key="frame" x="291" y="38" width="68" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="passWord" destination="vXk-56-To5" id="EhH-5a-0S7"/>
+                        <outlet property="passWordAgain" destination="RsI-MG-OCM" id="6sC-kJ-oY3"/>
+                        <outlet property="userName" destination="7Qq-0U-4yQ" id="PUL-vg-n1h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e97-27-lUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="428" y="-241.52923538230885"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="clock" width="48" height="46"/>
+        <image name="idea" width="56" height="64"/>
+        <image name="plane" width="40" height="50"/>
+        <image name="tag" width="54" height="26"/>
         <image name="textside" width="132" height="26"/>
         <image name="uncheck" width="13" height="15"/>
     </resources>

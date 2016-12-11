@@ -13,23 +13,32 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setTextFieldBound() //设置textfiled文字与边框距离
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBOutlet var userName: UITextField!
+    @IBOutlet var passWord: UITextField!
+    @IBOutlet var passWordAgain: UITextField!
+    
+    //注册按钮点击事件
+    @IBAction func registerButtonClick(_ sender: UIButton) {
+        self.view.makeToast("Register button clicked!!")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func setTextFieldBound(){
+        
+        //在textfield左边加入一个view的方式设置左边界距离
+        let leftViewName = UIView.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        userName.leftView = leftViewName
+        userName.leftViewMode = UITextFieldViewMode.always//模式为始终可见
+        
+        let leftViewPass = UIView.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        passWord.leftView = leftViewPass
+        passWord.leftViewMode = UITextFieldViewMode.always
+        
+        let leftViewPassAgain = UIView.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        passWordAgain.leftView = leftViewPassAgain
+        passWordAgain.leftViewMode = UITextFieldViewMode.always
     }
-    */
-
 }
