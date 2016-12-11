@@ -58,5 +58,22 @@ class LoginViewController: UIViewController {
         
     }
     
+    //同步Get方式发送请求
+    func GetRequest(){
+        let urlString: String = String(format:"http://192.168.253.1:8888/login?username=%@&password=%@", userName.text!,passWord.text!)
+        let url = URL(string: urlString)
+        let request = URLRequest(url: url!)
+        let response: AutoreleasingUnsafeMutablePointer<URLResponse?>?=nil
+        
+        do {
+            let recieveData = try NSURLConnection.sendSynchronousRequest(request, returning: response)
+            let dataString = NSString.init(data: recieveData, encoding: String.Encoding.utf8.rawValue)//得到服务器返回数据
+            print(response ?? "none") //response默认值为none
+            print(dataString!)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    }
     
 }

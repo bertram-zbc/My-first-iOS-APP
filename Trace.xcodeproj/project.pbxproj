@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184A5FBE1DFC143500795327 /* HYWaiWaiTiJ.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 184A5FBD1DFC12ED00795327 /* HYWaiWaiTiJ.ttf */; };
 		186149671DFAD6C400DE07C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186149661DFAD6C400DE07C9 /* LoginViewController.swift */; };
 		1872E6B61DF93CAC00A71E7D /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872E6B51DF93CAC00A71E7D /* PhotoView.swift */; };
 		1872E6B81DF93CC900A71E7D /* PhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1872E6B71DF93CC900A71E7D /* PhotoView.xib */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		184A5FBD1DFC12ED00795327 /* HYWaiWaiTiJ.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HYWaiWaiTiJ.ttf; sourceTree = "<group>"; };
 		186149661DFAD6C400DE07C9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1872E6B51DF93CAC00A71E7D /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		1872E6B71DF93CC900A71E7D /* PhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoView.xib; sourceTree = "<group>"; };
@@ -62,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		184A5FBC1DFC12C900795327 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18BD8B891DF7A822001F32CC /* Info.plist */,
+				184A5FBD1DFC12ED00795327 /* HYWaiWaiTiJ.ttf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		18BD8B711DF7A822001F32CC = {
 			isa = PBXGroup;
 			children = (
@@ -90,8 +101,8 @@
 				18BD8B811DF7A822001F32CC /* Main.storyboard */,
 				18BD8B841DF7A822001F32CC /* Assets.xcassets */,
 				18BD8B861DF7A822001F32CC /* LaunchScreen.storyboard */,
-				18BD8B891DF7A822001F32CC /* Info.plist */,
 				186149661DFAD6C400DE07C9 /* LoginViewController.swift */,
+				184A5FBC1DFC12C900795327 /* Supporting Files */,
 			);
 			path = Trace;
 			sourceTree = "<group>";
@@ -189,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184A5FBE1DFC143500795327 /* HYWaiWaiTiJ.ttf in Resources */,
 				18BD8B881DF7A822001F32CC /* LaunchScreen.storyboard in Resources */,
 				18BD8B851DF7A822001F32CC /* Assets.xcassets in Resources */,
 				18BD8B831DF7A822001F32CC /* Main.storyboard in Resources */,
