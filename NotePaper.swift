@@ -16,12 +16,12 @@ class NotePaper: UIView {
     let viewBounds = UIScreen.main.bounds
     //设置第一条线的位置
     let startX : CGFloat = 50 //距离左边界
-    let startY : CGFloat = 70
+    let startY : CGFloat = 60
     //设置右边界距离
     let alignRight : CGFloat = 20
     //设置第一个圆的圆心位置
     let centerX : CGFloat = 25
-    let centerY : CGFloat = 60
+    let centerY : CGFloat = 50
     //设置圆的半径
     let radius : CGFloat = 10
     //设置圆的间隔
@@ -57,6 +57,8 @@ class NotePaper: UIView {
             context!.addRect(CGRect(x: startX, y: currentY, width: lineWidth, height: 1))
             currentY += 2 + lineGap
         }
+        currentY = currentY - lineGap
+        context!.addRect(CGRect(x: startX, y: currentY, width: lineWidth, height: 1))
         
         context!.fillPath() //填充路径，绘制直线
         

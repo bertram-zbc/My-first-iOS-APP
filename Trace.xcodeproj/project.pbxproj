@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18417C9F1DFD38DA0033E682 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18417C9E1DFD38DA0033E682 /* RegisterViewController.swift */; };
 		184A5FBE1DFC143500795327 /* HYWaiWaiTiJ.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 184A5FBD1DFC12ED00795327 /* HYWaiWaiTiJ.ttf */; };
+		1856DF391DFFC82D0009B9EF /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1856DF381DFFC82D0009B9EF /* MainPageViewController.swift */; };
 		186149671DFAD6C400DE07C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186149661DFAD6C400DE07C9 /* LoginViewController.swift */; };
 		1872E6B61DF93CAC00A71E7D /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872E6B51DF93CAC00A71E7D /* PhotoView.swift */; };
 		1872E6B81DF93CC900A71E7D /* PhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1872E6B71DF93CC900A71E7D /* PhotoView.xib */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		18417C9E1DFD38DA0033E682 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		184A5FBD1DFC12ED00795327 /* HYWaiWaiTiJ.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HYWaiWaiTiJ.ttf; sourceTree = "<group>"; };
+		1856DF381DFFC82D0009B9EF /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		186149661DFAD6C400DE07C9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1872E6B51DF93CAC00A71E7D /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		1872E6B71DF93CC900A71E7D /* PhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoView.xib; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				18B36C261DFD8935007215E2 /* Toast.swift */,
 				18417C9E1DFD38DA0033E682 /* RegisterViewController.swift */,
 				18BD8B841DF7A822001F32CC /* Assets.xcassets */,
+				1856DF381DFFC82D0009B9EF /* MainPageViewController.swift */,
 				18BD8B861DF7A822001F32CC /* LaunchScreen.storyboard */,
 				186149661DFAD6C400DE07C9 /* LoginViewController.swift */,
 				184A5FBC1DFC12C900795327 /* Supporting Files */,
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18BD8BA21DF7B067001F32CC /* NotePaper.swift in Sources */,
+				1856DF391DFFC82D0009B9EF /* MainPageViewController.swift in Sources */,
 				18B36C271DFD8935007215E2 /* Toast.swift in Sources */,
 				18417C9F1DFD38DA0033E682 /* RegisterViewController.swift in Sources */,
 				18BD8B7E1DF7A822001F32CC /* AppDelegate.swift in Sources */,
