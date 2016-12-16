@@ -242,10 +242,10 @@
             </objects>
             <point key="canvasLocation" x="1204" y="-241.52923538230885"/>
         </scene>
-        <!--View Controller-->
+        <!--Content Input View Controller-->
         <scene sceneID="6Fk-F5-yQ4">
             <objects>
-                <viewController id="3f3-Z8-kfY" sceneMemberID="viewController">
+                <viewController id="3f3-Z8-kfY" customClass="ContentInputViewController" customModule="Trace" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MJd-vq-MK7"/>
                         <viewControllerLayoutGuide type="bottom" id="ZUE-Je-LKU"/>
@@ -253,12 +253,31 @@
                     <view key="view" contentMode="scaleToFill" id="8hy-hd-oUK" customClass="NotePaper" customModule="Trace" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Y8-tO-DvA">
+                                <rect key="frame" x="49" y="59" width="310" height="576"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">时间啊很多快乐啊撒东方航空技术大会分开后离开撒大会分开就撒好地方撒的恢复健康撒浪费好看就啊身份卡上东方科技落后撒的健康和福利款撒回复啊可是觉得和福利卡上的福利款撒的胡卡撒东方航空理解啊撒的发挥胡卡撒法赫卡里撒谎东方科技撒啊就是东方健康和撒开了返回拉萨啊可是飞机卡啦舒服大赛回家啊可是法赫卡里撒的回复胡卡和孔令辉撒东方裤哈伦是东方看见了很多撒开发</string>
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="HYWaiWaiTiJ"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="13" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="text" destination="9Y8-tO-DvA" id="ium-ZR-ssC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VIi-6r-DOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1975" y="-422"/>
+            <point key="canvasLocation" x="1973.5999999999999" y="-422.33883058470769"/>
         </scene>
     </scenes>
     <resources>

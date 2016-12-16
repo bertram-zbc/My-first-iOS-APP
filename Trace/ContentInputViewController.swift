@@ -2,34 +2,31 @@
 //  ContentInputViewController.swift
 //  Trace
 //
-//  Created by Apple on 2016/12/15.
-//  Copyright © 2016年 Apple. All rights reserved.
+//  Created by Bertram on 2016/12/15.
+//  Copyright © 2016年 Bertram. All rights reserved.
 //
 
 import UIKit
 
 class ContentInputViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //设置字体
+        text.font = UIFont.init(name: "HYWaiWaiTiJ", size: 17.0)
+        //设置textview躲避键盘
+        keyboard.avoid(inView: self.view, textView: text, offSetY: 0)
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    var keyboard = TextViewKeyBoard()
+    @IBOutlet var text: UITextView!
+    
+    //触摸关闭键盘
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
-    */
-
+    
 }
