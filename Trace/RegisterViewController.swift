@@ -32,19 +32,7 @@ class RegisterViewController: UIViewController {
             self.view.makeToast("密码不一致，请重新输入")
         }else {
             //发送数据给服务器并接收返回的结果
-            let result = GetRequest()
-            if result == "network error" {
-                self.view.makeToast("网络错误，请检查网络设置")
-            }
-            else if result == "username exist" {
-                self.view.makeToast("用户名已存在")
-            }
-            else if result == "server error" {
-                self.view.makeToast("服务器异常，请稍后重试")
-            }
-            else{
-                self.view.makeToast("注册成功")
-            }
+            GetRequest()
         }
     }
     
@@ -65,22 +53,88 @@ class RegisterViewController: UIViewController {
         passWordAgain.leftViewMode = UITextFieldViewMode.always
     }
     
-    func GetRequest()->String{
+//    func GetRequest()->String{
+//        let urlString: String = String(format:"http://"+Config.ip+":"+Config.port+"/register?username=%@&password=%@", userName.text!,passWord.text!)
+//        let url = URL(string: urlString)
+//        let request = URLRequest(url: url!)
+//        let response: AutoreleasingUnsafeMutablePointer<URLResponse?>?=nil
+//        
+//        do {
+//            let recieveData = try NSURLConnection.sendSynchronousRequest(request, returning: response)
+//            let dataString = NSString.init(data: recieveData, encoding: String.Encoding.utf8.rawValue)//得到服务器返回数据
+//            print(response ?? "none") //response默认值为none
+//            print(dataString!)
+//            return dataString as! String
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//            return "network error"
+//        }
+//    }
+    
+    //具体逻辑与登录界面相同，详细解释见LoginViewController
+    func GetRequest() {
+        
+        var result: String = "";
         let urlString: String = String(format:"http://"+Config.ip+":"+Config.port+"/register?username=%@&password=%@", userName.text!,passWord.text!)
         let url = URL(string: urlString)
         let request = URLRequest(url: url!)
-        let response: AutoreleasingUnsafeMutablePointer<URLResponse?>?=nil
-        
-        do {
-            let recieveData = try NSURLConnection.sendSynchronousRequest(request, returning: response)
-            let dataString = NSString.init(data: recieveData, encoding: String.Encoding.utf8.rawValue)//得到服务器返回数据
-            print(response ?? "none") //response默认值为none
-            print(dataString!)
-            return dataString as! String
-        } catch let error as NSError {
-            print(error.localizedDescription)
-            return "network error"
+        let session: URLSession = URLSession.shared
+        let dataTask: URLSessionDataTask = session.dataTask(with: request){ (data,response,error) in
+            if error == nil { //连接成功
+                //得到服务器返回数据
+                let dataString = NSString.init(data: data!, encoding: String.Encoding.utf8.rawValue)
+                result = dataString as! String
+            }
+            else{ //连接失败
+                result = "network error"
+            }
         }
-
+        dataTask.resume() //执行任务
+        
+        let time: TimeInterval = 0.5
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+time, execute: {
+            //已经得到服务器返回的数据
+            if result != "" {
+                if result == "network error" {
+                    self.view.makeToast("网络错误，请检查网络设置")
+                }
+                else if result == "username exist" {
+                    self.view.makeToast("用户名已存在")
+                }
+                else if result == "server error" {
+                    self.view.makeToast("服务器异常，请稍后重试")
+                }
+                else{
+                    self.view.makeToast("注册成功")
+                }
+            }
+            //还没有得到返回的数据，可能是网络连接较慢，也可能是网络异常
+            else{
+                self.view.makeToast("网络连接较慢，请稍等", duration: 1, position: ToastPosition.bottom)
+                sleep(1) //再等1秒，如果还是没有返回数据则认为是网络异常
+                if result == "" {
+                    self.view.makeToast("网络异常，请检查网络设置", duration: 2, position: ToastPosition.bottom)
+                }
+                else {
+                    if result == "network error" {
+                        self.view.makeToast("网络错误，请检查网络设置")
+                    }
+                    else if result == "username exist" {
+                        self.view.makeToast("用户名已存在")
+                    }
+                    else if result == "server error" {
+                        self.view.makeToast("服务器异常，请稍后重试")
+                    }
+                    else{
+                        self.view.makeToast("注册成功")
+                    }
+                }
+            }
+     
+        })
     }
+    
+
+    
+    
 }

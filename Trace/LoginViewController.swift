@@ -20,6 +20,9 @@ class LoginViewController: UIViewController {
         print("loading login view...")
 
         setTextFieldBound() //设置textfiled文字与边框距离
+        
+//        userName.text = "user1"
+//        passWord.text = "123456"
     }
 
     var checkTag = false //标记是否选中
@@ -62,37 +65,95 @@ class LoginViewController: UIViewController {
         else if passWord.text == "" {
             self.view.makeToast("请输入密码")
         }else{
-            let result = GetRequest()
-            if result == "network error" {
-                self.view.makeToast("网络错误，请检查网络设置")
-            }
-            else if result == "success" {
-                self.view.makeToast("登录成功")
-            }else{
-                self.view.makeToast("用户名或密码错误")
-            }
+            //与服务器交互
+            GetRequest()
         }
     }
     
-    //同步Get方式发送请求
-    func GetRequest() -> String{
+    //同步Get方式发送请求，但是这个方法在iOS9中已经deprecated了
+//    func GetRequest() -> String{
+//        let urlString: String = String(format:"http://"+Config.ip+":"+Config.port+"/login?username=%@&password=%@", userName.text!,passWord.text!)
+//        print(urlString)
+//        let url = URL(string: urlString)
+//        let request = URLRequest(url: url!)
+//        let response: AutoreleasingUnsafeMutablePointer<URLResponse?>?=nil
+//        
+//        do {
+//            let recieveData = try NSURLConnection.sendSynchronousRequest(request, returning: response)
+//            let dataString = NSString.init(data: recieveData, encoding: String.Encoding.utf8.rawValue)//得到服务器返回数据
+//            print(response ?? "none") //response默认值为none
+//            print(dataString!)
+//            return dataString as! String
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//            return "network error"
+//        }
+//        
+//    }
+    
+    
+    //使用URLSession异步Get发送请求
+    func GetRequest()  {
+        
+        //记录结果
+        var result: String = "";
+        
+        //请求路径设置
         let urlString: String = String(format:"http://"+Config.ip+":"+Config.port+"/login?username=%@&password=%@", userName.text!,passWord.text!)
-        print(urlString)
-        let url = URL(string: urlString)
-        let request = URLRequest(url: url!)
-        let response: AutoreleasingUnsafeMutablePointer<URLResponse?>?=nil
-        
-        do {
-            let recieveData = try NSURLConnection.sendSynchronousRequest(request, returning: response)
-            let dataString = NSString.init(data: recieveData, encoding: String.Encoding.utf8.rawValue)//得到服务器返回数据
-            print(response ?? "none") //response默认值为none
-            print(dataString!)
-            return dataString as! String
-        } catch let error as NSError {
-            print(error.localizedDescription)
-            return "network error"
+        let url: URL = URL(string: urlString)!
+        //创建请求对象，对象内部已经包含请求头和方法（GET）
+        let request: URLRequest = URLRequest(url: url)
+        //获得会话对象
+        let session: URLSession = URLSession.shared
+        //根据会话对象创建一个task
+        let dataTask: URLSessionDataTask = session.dataTask(with: request){ (data,response,error) in
+            if error == nil { //连接成功
+                //得到服务器返回数据
+                let dataString = NSString.init(data: data!, encoding: String.Encoding.utf8.rawValue)
+                result = dataString as! String
+            }
+            else{ //连接失败
+                result = "network error"
+            }
         }
+        dataTask.resume() //执行任务
         
+        //设置执行延迟，因为需要等服务器返回数据，而服务器是异步的
+        let time: TimeInterval = 0.5
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+time, execute: {
+            //已经得到服务器返回的数据
+            if result != "" {
+                if result == "network error" {
+                    self.view.makeToast("网络错误，请检查网络设置")
+                }
+                else if result == "success" {
+                    self.view.makeToast("登录成功")
+                }else{
+                    self.view.makeToast("用户名或密码错误")
+                }
+            }
+            //还没有得到返回的数据，可能是网络连接较慢，也可能是网络异常
+            else{
+                self.view.makeToast("网络连接较慢，请稍等", duration: 1, position: ToastPosition.bottom)
+                sleep(1) //再等1秒，如果还是没有返回数据则认为是网络异常
+                if result == ""{
+                    self.view.makeToast("网络异常，请检查网络设置", duration: 2, position: ToastPosition.bottom)
+                }
+                else{
+                    if result == "network error" {
+                        self.view.makeToast("网络错误，请检查网络设置")
+                    }
+                    else if result == "success" {
+                        self.view.makeToast("登录成功")
+                    }else{
+                        self.view.makeToast("用户名或密码错误")
+                    }
+                }
+            }
+            
+        })
+       
     }
+
     
 }
