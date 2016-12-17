@@ -56,11 +56,28 @@ class LoginViewController: UIViewController {
     //登录按钮点击
     @IBAction func loginButtonClick(_ sender: UIButton) {
         
+        if userName.text == "" {
+            self.view.makeToast("请输入用户名")
+        }
+        else if passWord.text == "" {
+            self.view.makeToast("请输入密码")
+        }else{
+            let result = GetRequest()
+            if result == "network error" {
+                self.view.makeToast("网络错误，请检查网络设置")
+            }
+            else if result == "success" {
+                self.view.makeToast("登录成功")
+            }else{
+                self.view.makeToast("用户名或密码错误")
+            }
+        }
     }
     
     //同步Get方式发送请求
-    func GetRequest(){
-        let urlString: String = String(format:"http://192.168.253.1:8888/login?username=%@&password=%@", userName.text!,passWord.text!)
+    func GetRequest() -> String{
+        let urlString: String = String(format:"http://"+Config.ip+":"+Config.port+"/login?username=%@&password=%@", userName.text!,passWord.text!)
+        print(urlString)
         let url = URL(string: urlString)
         let request = URLRequest(url: url!)
         let response: AutoreleasingUnsafeMutablePointer<URLResponse?>?=nil
@@ -70,8 +87,10 @@ class LoginViewController: UIViewController {
             let dataString = NSString.init(data: recieveData, encoding: String.Encoding.utf8.rawValue)//得到服务器返回数据
             print(response ?? "none") //response默认值为none
             print(dataString!)
+            return dataString as! String
         } catch let error as NSError {
             print(error.localizedDescription)
+            return "network error"
         }
         
     }
