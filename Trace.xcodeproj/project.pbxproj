@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18304CF51E052271003B203B /* DicSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18304CF41E052271003B203B /* DicSetViewController.swift */; };
 		18417C9F1DFD38DA0033E682 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18417C9E1DFD38DA0033E682 /* RegisterViewController.swift */; };
 		184A5FBE1DFC143500795327 /* HYWaiWaiTiJ.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 184A5FBD1DFC12ED00795327 /* HYWaiWaiTiJ.ttf */; };
 		1856DF391DFFC82D0009B9EF /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1856DF381DFFC82D0009B9EF /* MainPageViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18304CF41E052271003B203B /* DicSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DicSetViewController.swift; sourceTree = "<group>"; };
 		18417C9E1DFD38DA0033E682 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		184A5FBD1DFC12ED00795327 /* HYWaiWaiTiJ.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HYWaiWaiTiJ.ttf; sourceTree = "<group>"; };
 		1856DF381DFFC82D0009B9EF /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				18B36C261DFD8935007215E2 /* Toast.swift */,
 				18417C9E1DFD38DA0033E682 /* RegisterViewController.swift */,
 				18BD8B841DF7A822001F32CC /* Assets.xcassets */,
+				18304CF41E052271003B203B /* DicSetViewController.swift */,
 				1856DF381DFFC82D0009B9EF /* MainPageViewController.swift */,
 				18BD8B861DF7A822001F32CC /* LaunchScreen.storyboard */,
 				186149661DFAD6C400DE07C9 /* LoginViewController.swift */,
@@ -267,6 +270,7 @@
 				1856DF391DFFC82D0009B9EF /* MainPageViewController.swift in Sources */,
 				186FE14D1E02932B006EBCF4 /* ContentInputViewController.swift in Sources */,
 				18B36C271DFD8935007215E2 /* Toast.swift in Sources */,
+				18304CF51E052271003B203B /* DicSetViewController.swift in Sources */,
 				185EA32B1E03928C0018AFDC /* Config.swift in Sources */,
 				186FE1571E02CC6E006EBCF4 /* AccessoryView.swift in Sources */,
 				18417C9F1DFD38DA0033E682 /* RegisterViewController.swift in Sources */,
