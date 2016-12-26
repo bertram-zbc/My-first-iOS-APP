@@ -16,20 +16,20 @@ class MainPageViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    @IBOutlet var newDay: UIButton!
+    @IBOutlet var passDay: UIButton!
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let screenHight = UIScreen.main.bounds.height
+        let buttonHight = newDay.frame.height
+        let off:CGFloat = 50
+        let y_newDay = screenHight/2 - off - buttonHight
+        let y_passDay = screenHight/2
+        newDay.frame.origin.y = y_newDay
+        passDay.frame.origin.y = y_passDay
+        
     }
-    */
 
 }

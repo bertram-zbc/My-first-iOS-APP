@@ -17,6 +17,7 @@
 		186FE1571E02CC6E006EBCF4 /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186FE1551E02CC6E006EBCF4 /* AccessoryView.swift */; };
 		186FE1581E02CC6E006EBCF4 /* AccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186FE1561E02CC6E006EBCF4 /* AccessoryView.xib */; };
 		186FE15A1E02CD2C006EBCF4 /* MyTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186FE1591E02CD2C006EBCF4 /* MyTextViewDelegate.swift */; };
+		1872715A1E0D402400708A89 /* FadeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187271591E0D402400708A89 /* FadeAnimation.swift */; };
 		1872E6B61DF93CAC00A71E7D /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872E6B51DF93CAC00A71E7D /* PhotoView.swift */; };
 		1872E6B81DF93CC900A71E7D /* PhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1872E6B71DF93CC900A71E7D /* PhotoView.xib */; };
 		18B36C271DFD8935007215E2 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B36C261DFD8935007215E2 /* Toast.swift */; };
@@ -49,6 +50,7 @@
 		186FE1551E02CC6E006EBCF4 /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
 		186FE1561E02CC6E006EBCF4 /* AccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccessoryView.xib; sourceTree = "<group>"; };
 		186FE1591E02CD2C006EBCF4 /* MyTextViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTextViewDelegate.swift; sourceTree = "<group>"; };
+		187271591E0D402400708A89 /* FadeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeAnimation.swift; sourceTree = "<group>"; };
 		1872E6B51DF93CAC00A71E7D /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		1872E6B71DF93CC900A71E7D /* PhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoView.xib; sourceTree = "<group>"; };
 		18B36C261DFD8935007215E2 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 			name = "TextView&Keyboard";
 			sourceTree = "<group>";
 		};
+		187271581E0D3F2700708A89 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				187271591E0D402400708A89 /* FadeAnimation.swift */,
+			);
+			name = Animation;
+			sourceTree = "<group>";
+		};
 		18BD8B711DF7A822001F32CC = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +140,7 @@
 		18BD8B7C1DF7A822001F32CC /* Trace */ = {
 			isa = PBXGroup;
 			children = (
+				187271581E0D3F2700708A89 /* Animation */,
 				185EA3291E0392730018AFDC /* Config */,
 				186FE1501E02CAE1006EBCF4 /* TextView&Keyboard */,
 				18BD8BA11DF7B067001F32CC /* NotePaper.swift */,
@@ -278,6 +289,7 @@
 				18BD8B7E1DF7A822001F32CC /* AppDelegate.swift in Sources */,
 				186149671DFAD6C400DE07C9 /* LoginViewController.swift in Sources */,
 				1872E6B61DF93CAC00A71E7D /* PhotoView.swift in Sources */,
+				1872715A1E0D402400708A89 /* FadeAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

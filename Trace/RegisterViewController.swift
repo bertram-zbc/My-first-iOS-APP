@@ -20,6 +20,23 @@ class RegisterViewController: UIViewController {
     @IBOutlet var passWord: UITextField!
     @IBOutlet var passWordAgain: UITextField!
     
+    @IBOutlet var layoutUsername: UILabel!
+    @IBOutlet var layoutPassword: UILabel!
+    @IBOutlet var layoutPasswordAgain: UILabel!
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let screenWidth = UIScreen.main.bounds.width
+        let textFieldWidth = userName.frame.width
+        let xoff = screenWidth/2 - textFieldWidth/2
+        
+        layoutUsername.frame.origin.x = xoff
+        layoutPassword.frame.origin.x = xoff
+        layoutPasswordAgain.frame.origin.x = xoff
+    }
+    
     //注册按钮点击事件
     @IBAction func registerButtonClick(_ sender: UIButton) {
         if userName.text == "" {
@@ -135,6 +152,8 @@ class RegisterViewController: UIViewController {
     }
     
 
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
 }

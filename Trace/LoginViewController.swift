@@ -17,12 +17,30 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("loading login view...")
+        //print("loading login view...")
 
         setTextFieldBound() //设置textfiled文字与边框距离
         
 //        userName.text = "user1"
 //        passWord.text = "123456"
+    }
+    
+    //设置控件布局使适应各类尺寸屏幕
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //获取屏幕宽度
+        let screenWidth = UIScreen.main.bounds.width
+        //获取textfield宽度
+        let textFieldWidth = userName.frame.width
+        //计算label的横坐标，使之与textfield左对齐
+        let xoff = screenWidth/2 - textFieldWidth/2
+        layoutUsername.frame.origin.x = xoff
+        layoutPassword.frame.origin.x = xoff
+        
+        //登录按钮宽度为97
+        let xoff2 = screenWidth/2 - 97/2 + 5
+        rememberImage.frame.origin.x = xoff2
+        layoutRemember.frame.origin.x = xoff2+8+rememberImage.frame.width
     }
 
     var checkTag = false //标记是否选中
@@ -31,8 +49,20 @@ class LoginViewController: UIViewController {
     @IBOutlet var passWord: UITextField!
     @IBOutlet var rememberImage: UIImageView!
     
+    @IBOutlet var layoutUsername: UILabel!
+    @IBOutlet var layoutPassword: UILabel!
+    @IBOutlet var layoutRemember: UILabel!
+//    func setStatus(){
+//        let screenWidth = UIScreen.main.bounds.width
+//        let textFieldWidth = userName.frame.width
+//        print(textFieldWidth)
+//        let xoff = screenWidth/2 - textFieldWidth/2
+//        print(xoff)
+//        layoutUsername.frame.origin.x = xoff
+//        
+//    }
+    
     func setTextFieldBound(){
-        
         //在textfield左边加入一个view的方式设置左边界距离
         let leftViewName = UIView.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         userName.leftView = leftViewName
@@ -70,6 +100,12 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func registerButtonClick(_ sender: UIButton) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "RegisterViewController")
+        viewController.transitioningDelegate = self
+        self.present(viewController, animated: true, completion: nil)
+    }
     //同步Get方式发送请求，但是这个方法在iOS9中已经deprecated了
 //    func GetRequest() -> String{
 //        let urlString: String = String(format:"http://"+Config.ip+":"+Config.port+"/login?username=%@&password=%@", userName.text!,passWord.text!)
@@ -127,7 +163,12 @@ class LoginViewController: UIViewController {
                     self.view.makeToast("网络错误，请检查网络设置")
                 }
                 else if result == "success" {
-                    self.view.makeToast("登录成功")
+                    //self.view.makeToast("登录成功")
+                    //跳转到MainPageViewController
+                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = storyBoard.instantiateViewController(withIdentifier: "MainPageViewController")
+                    viewController.transitioningDelegate = self
+                    self.present(viewController, animated: true, completion: nil)
                 }else{
                     self.view.makeToast("用户名或密码错误")
                 }
@@ -144,7 +185,12 @@ class LoginViewController: UIViewController {
                         self.view.makeToast("网络错误，请检查网络设置")
                     }
                     else if result == "success" {
-                        self.view.makeToast("登录成功")
+                        //self.view.makeToast("登录成功")
+                        //跳转到MainPageViewController
+                        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                        let viewController = storyBoard.instantiateViewController(withIdentifier: "MainPageViewController")
+                        viewController.transitioningDelegate = self
+                        self.present(viewController, animated: true, completion: nil)
                     }else{
                         self.view.makeToast("用户名或密码错误")
                     }
@@ -155,5 +201,22 @@ class LoginViewController: UIViewController {
        
     }
 
+    //触摸关闭键盘
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
+}
+
+//设置转场动画代理
+extension LoginViewController: UIViewControllerTransitioningDelegate{
+    
+    //present动画效果
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return FadeAnimation()
+    }
+    //dismiss动画效果
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return FadeAnimation()
+    }
 }
