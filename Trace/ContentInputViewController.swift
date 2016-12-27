@@ -16,7 +16,8 @@ class ContentInputViewController: UIViewController {
         //设置字体
         text.font = UIFont.init(name: "HYWaiWaiTiJ", size: 17.0)
         //设置textview躲避键盘
-        keyboard.avoid(inView: self.view, textView: text, offSetY: 0)
+        keyboard.avoid(inView: self.view, textView: text, offSetY: 24)
+        text.text = ""
 
     }
     

@@ -19,10 +19,12 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         //print("loading login view...")
 
+        rememberImage.image = UIImage(named: "check")//默认是记住密码的
+        
         setTextFieldBound() //设置textfiled文字与边框距离
         
-//        userName.text = "user1"
-//        passWord.text = "123456"
+        userName.text = "user1"
+        passWord.text = "123456"
     }
     
     //设置控件布局使适应各类尺寸屏幕
@@ -43,7 +45,7 @@ class LoginViewController: UIViewController {
         layoutRemember.frame.origin.x = xoff2+8+rememberImage.frame.width
     }
 
-    var checkTag = false //标记是否选中
+    var checkTag = true //标记是否选中
     
     @IBOutlet var userName: UITextField!
     @IBOutlet var passWord: UITextField!
@@ -169,6 +171,18 @@ class LoginViewController: UIViewController {
                     let viewController = storyBoard.instantiateViewController(withIdentifier: "MainPageViewController")
                     viewController.transitioningDelegate = self
                     self.present(viewController, animated: true, completion: nil)
+                    
+                    //异步文件操作，处理记住密码的文件配置
+                    DispatchQueue.global().async {
+                        if self.checkTag{
+                            //标记选中表示需要记住密码
+                            self.writeFile()
+                        } else{
+                            //TODO 判断配置文件是否存在，存在则删除
+                        }
+                        
+                    }
+                    
                 }else{
                     self.view.makeToast("用户名或密码错误")
                 }
@@ -191,6 +205,17 @@ class LoginViewController: UIViewController {
                         let viewController = storyBoard.instantiateViewController(withIdentifier: "MainPageViewController")
                         viewController.transitioningDelegate = self
                         self.present(viewController, animated: true, completion: nil)
+                        
+                        DispatchQueue.global().async {
+                            if self.checkTag{
+                                //标记选中表示需要记住密码
+                                self.writeFile()
+                            } else{
+                                //TODO 判断配置文件是否存在，存在则删除
+                            }
+                            
+                        }
+                        
                     }else{
                         self.view.makeToast("用户名或密码错误")
                     }
@@ -199,6 +224,57 @@ class LoginViewController: UIViewController {
             
         })
        
+    }
+    
+    func writeFile(){
+        print("write file")
+        //文件操作
+        let fileManager = FileManager.default
+        let mydir = cachePath + "/Trace/Config"
+//        print(mydir)
+//        print(homeDirectory)
+//        print(tmpDirectory)
+        do {
+            //创建路径
+            try fileManager.createDirectory(atPath: mydir, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            print("error create dir")
+        }
+        
+        let filePath = mydir + "/login.txt"
+        print(filePath)
+        let isExist = fileManager.fileExists(atPath: filePath)
+        if isExist{
+            
+            //print("文件已存在")
+            
+            //读文件的操作
+//            do {
+//                let data = try NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue)
+//                print(data)
+//            } catch {
+//                print("error read file")
+//            }
+            
+            //文件存在则直接删除重新创建
+            do {
+                try fileManager.removeItem(atPath: filePath)
+            } catch {
+                print("delete file error")
+            }
+            
+        }
+        
+        //创建文件并写入用户名
+        let info = userName.text
+        do {
+            try info!.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("error write file")
+        }
+        
+        
+        
     }
 
     //触摸关闭键盘

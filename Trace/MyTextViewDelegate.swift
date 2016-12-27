@@ -41,6 +41,7 @@ extension TextViewKeyBoard: UITextViewDelegate{
         return UIScreen.main.bounds.height
     }
     
+    
     func avoid(inView v: UIView!, textView: UITextView, offSetY: CGFloat) {
         pv = v
         self.textView = textView
@@ -91,7 +92,12 @@ extension TextViewKeyBoard: UITextViewDelegate{
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         //TODO 需要添加一些修改：判断什么时候willShow为true
-        //willShow = true
+        //willShow = true //为true表示随着移动
+        if calculateLine(str: textView.text){
+            willShow = true
+        } else{
+            willShow = false
+        }
         return true
     }
     
@@ -101,8 +107,47 @@ extension TextViewKeyBoard: UITextViewDelegate{
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        //TODO 跟随移动实现
-        print("3")
+        //响应textview进行编辑
+        if calculateLine(str: textView.text) {
+            //当发现光标已经被键盘阻挡则向上移动textview
+            UIView.animate(withDuration: 0.25, animations: {[unowned self] () -> Void in
+                UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: 7)!)
+                self.pv.transform = CGAffineTransform(translationX: 0, y: -Config.keyboardHight-44)
+            })
+        }else{
+            //当不被阻挡则移回原来位置
+            UIView.animate(withDuration: 0.25, animations: {[unowned self] () -> Void in
+                UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: 7)!)
+                self.pv.transform = CGAffineTransform(translationX: 0, y: 0)
+            })
+        }
+    }
+    
+    //计算文本是否在键盘之下
+    func calculateLine(str:String) -> Bool{
+        
+        let lineWidth = Int(self.textView.frame.width)
+        var line: Int = 0 //记录行数
+        let strArray = str.components(separatedBy: "\n")
+        for i in 0..<strArray.count{
+            let bytes = strArray[i].lengthOfBytes(using: String.Encoding.utf8)
+            let wordCount:Int = bytes/3 //大致计算汉字个数，一个汉字3字节
+            let allWidth = wordCount*20 //计算总的长度，一个字20像素
+            line = line + Int(allWidth/lineWidth) + 1
+        }
+        
+        line += 1 //调整偏差
+        //计算textview光标的大致位置
+        let offY = CGFloat(50 + line * 30)
+        //print(offY)
+        //print(ScreenH - Config.keyboardHight)
+        //44是键盘上面的view的高度
+        if offY > (ScreenH - Config.keyboardHight - 44) {
+            //在键盘的位置下面，返回true
+            return true
+        } else{
+            return false
+        }
     }
         
 }

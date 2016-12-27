@@ -14,8 +14,12 @@ class DicSetViewController: UIViewController {
         super.viewDidLoad()
 
         setImageInVisable()
-        print("???")
     }
+    
+    var personal: String = "public"
+    var weather: String = "cloudy"
+    var mood: String = "good"
+    var tag: String = "life"
     
     //红色选择框图片设置
     @IBOutlet var chooseImagePublic: UIImageView!
@@ -33,6 +37,31 @@ class DicSetViewController: UIViewController {
     @IBOutlet var chooseImageThink: UIImageView!
     @IBOutlet var chooseImageComplain: UIImageView!
     
+    @IBAction func chooseImage(_ sender: UIButton) {
+        
+        //创建文件夹用于保存日记数据
+        DispatchQueue.global().async {
+            let fileManager = FileManager.default
+            let mydir = documentPath + "/Trace/Document"
+            
+            let currentDate = Date() //当前时间
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale.current //设置时区
+            dateFormatter.dateFormat = "yyyy-MM-dd" //设置格式
+            let stringDate = dateFormatter.string(from: currentDate)
+            let fileDir = stringDate + "&" + self.personal + "&" + self.weather + "&" + self.mood + "&" + self.tag
+            let filePath = mydir + "/" + fileDir
+            //print(filePath)
+            
+            do{
+                try fileManager.createDirectory(atPath: filePath, withIntermediateDirectories: true, attributes: nil)
+            } catch{
+                print("create dir error")
+            }
+        }
+        
+        
+    }
 
     
     func setImageInVisable(){
@@ -55,11 +84,13 @@ class DicSetViewController: UIViewController {
     @IBAction func privateClick(_ sender: UITapGestureRecognizer) {
         chooseImagePrivate.alpha = 1.0
         chooseImagePublic.alpha = 0
+        personal = "private"
     }
     
     @IBAction func publicClick(_ sender: UITapGestureRecognizer) {
         chooseImagePublic.alpha = 1.0
         chooseImagePrivate.alpha = 0
+        personal = "public"
     }
     
     @IBAction func sunnyClick(_ sender: UITapGestureRecognizer) {
@@ -67,6 +98,7 @@ class DicSetViewController: UIViewController {
         chooseImageCloudy.alpha = 0
         chooseImageRainy.alpha = 0
         chooseImageSnowy.alpha = 0
+        weather = "sunny"
     }
 
     @IBAction func cloudyClick(_ sender: UITapGestureRecognizer) {
@@ -74,6 +106,7 @@ class DicSetViewController: UIViewController {
         chooseImageCloudy.alpha = 1.0
         chooseImageRainy.alpha = 0
         chooseImageSnowy.alpha = 0
+        weather = "cloudy"
     }
     
     @IBAction func rainyClick(_ sender: UITapGestureRecognizer) {
@@ -81,6 +114,7 @@ class DicSetViewController: UIViewController {
         chooseImageCloudy.alpha = 0
         chooseImageRainy.alpha = 1.0
         chooseImageSnowy.alpha = 0
+        weather = "rainy"
     }
     
     @IBAction func snowyClick(_ sender: UITapGestureRecognizer) {
@@ -88,24 +122,28 @@ class DicSetViewController: UIViewController {
         chooseImageCloudy.alpha = 0
         chooseImageRainy.alpha = 0
         chooseImageSnowy.alpha = 1.0
+        weather = "snowy"
     }
     
     @IBAction func goodMoodClick(_ sender: UITapGestureRecognizer) {
         chooseImageGoodMood.alpha = 1.0
         chooseImageNormalMood.alpha = 0
         chooseImageBadMood.alpha = 0
+        mood = "good"
     }
     
     @IBAction func normalMoodClick(_ sender: UITapGestureRecognizer) {
         chooseImageGoodMood.alpha = 0
         chooseImageNormalMood.alpha = 1.0
         chooseImageBadMood.alpha = 0
+        mood = "normal"
     }
     
     @IBAction func badMoodClick(_ sender: UITapGestureRecognizer) {
         chooseImageGoodMood.alpha = 0
         chooseImageNormalMood.alpha = 0
         chooseImageBadMood.alpha = 1.0
+        mood = "bad"
     }
     
     @IBAction func tripClick(_ sender: UITapGestureRecognizer) {
@@ -114,6 +152,7 @@ class DicSetViewController: UIViewController {
         chooseImageLife.alpha = 0
         chooseImageThink.alpha = 0
         chooseImageComplain.alpha = 0
+        tag = "trip"
     }
     
     @IBAction func essayClick(_ sender: UITapGestureRecognizer) {
@@ -122,6 +161,7 @@ class DicSetViewController: UIViewController {
         chooseImageLife.alpha = 0
         chooseImageThink.alpha = 0
         chooseImageComplain.alpha = 0
+        tag = "essay"
     }
     
     @IBAction func lifeClick(_ sender: UITapGestureRecognizer) {
@@ -130,6 +170,7 @@ class DicSetViewController: UIViewController {
         chooseImageLife.alpha = 1.0
         chooseImageThink.alpha = 0
         chooseImageComplain.alpha = 0
+        tag = "life"
     }
     
     @IBAction func thinkClick(_ sender: UITapGestureRecognizer) {
@@ -138,6 +179,7 @@ class DicSetViewController: UIViewController {
         chooseImageLife.alpha = 0
         chooseImageThink.alpha = 1.0
         chooseImageComplain.alpha = 0
+        tag = "think"
     }
     
     @IBAction func complainClick(_ sender: UITapGestureRecognizer) {
@@ -146,6 +188,7 @@ class DicSetViewController: UIViewController {
         chooseImageLife.alpha = 0
         chooseImageThink.alpha = 0
         chooseImageComplain.alpha = 1.0
+        tag = "complain"
     }
     
     

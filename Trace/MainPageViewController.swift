@@ -31,5 +31,33 @@ class MainPageViewController: UIViewController {
         passDay.frame.origin.y = y_passDay
         
     }
+    
+    //点击记录新的一天的按钮
+    @IBAction func newDayClick(_ sender: UIButton) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "ChooseTypeViewController")
+        viewController.transitioningDelegate = self
+        self.present(viewController, animated: true, completion: nil)
+        
+    }
+    //查看过去日记按钮点击事件
+    @IBAction func passDayClick(_ sender: UIButton) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "SearchViewController")
+        viewController.transitioningDelegate = self
+        self.present(viewController, animated: true, completion: nil)
+    }
 
+}
+
+
+extension MainPageViewController: UIViewControllerTransitioningDelegate{
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return FadeAnimation()
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return FadeAnimation()
+    }
 }
