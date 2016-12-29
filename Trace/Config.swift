@@ -72,6 +72,17 @@ struct DeviceSzie {
 }
 let currDevice = DeviceSzie.currentSize()
 
+//获取当前系统日期
+func getDate() -> String{
+    let currentDate = Date() //当前时间
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale.current //设置时区
+    dateFormatter.dateFormat = "yyyy-MM-dd" //设置格式
+    let stringDate = dateFormatter.string(from: currentDate)
+    return stringDate
+}
+
+
 class config {
     
     public let ip: String = "192.168.253.1" //服务器IP

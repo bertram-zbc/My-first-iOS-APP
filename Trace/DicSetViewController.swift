@@ -43,12 +43,8 @@ class DicSetViewController: UIViewController {
         DispatchQueue.global().async {
             let fileManager = FileManager.default
             let mydir = documentPath + "/Trace/Document"
-            
-            let currentDate = Date() //当前时间
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale.current //设置时区
-            dateFormatter.dateFormat = "yyyy-MM-dd" //设置格式
-            let stringDate = dateFormatter.string(from: currentDate)
+        
+            let stringDate = getDate() //获取日期
             let fileDir = stringDate + "&" + self.personal + "&" + self.weather + "&" + self.mood + "&" + self.tag
             let filePath = mydir + "/" + fileDir
             //print(filePath)
@@ -59,6 +55,11 @@ class DicSetViewController: UIViewController {
                 print("create dir error")
             }
         }
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "ContentInputViewController")
+        viewController.transitioningDelegate = self
+        self.present(viewController, animated: true, completion: nil)
         
         
     }
@@ -192,4 +193,18 @@ class DicSetViewController: UIViewController {
     }
     
     
+}
+
+
+//设置转场动画代理
+extension DicSetViewController: UIViewControllerTransitioningDelegate{
+    
+    //present动画效果
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return FadeAnimation()
+    }
+    //dismiss动画效果
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return FadeAnimation()
+    }
 }
