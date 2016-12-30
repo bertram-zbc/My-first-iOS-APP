@@ -102,7 +102,7 @@ extension TextViewKeyBoard: UITextViewDelegate{
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        print("2")
+        //print("2")
         willShow = false
     }
     

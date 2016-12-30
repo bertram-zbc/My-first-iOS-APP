@@ -73,7 +73,7 @@ struct DeviceSzie {
 let currDevice = DeviceSzie.currentSize()
 
 //获取当前系统日期
-func getDate() -> String{
+func getDate() -> String {
     let currentDate = Date() //当前时间
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale.current //设置时区
@@ -82,6 +82,19 @@ func getDate() -> String{
     return stringDate
 }
 
+//获取当前的用户名
+func getUserName() -> String {
+    var username:String = ""
+    let mydir = cachePath + "/Trace/Config"
+    
+    let filePath = mydir + "/login.txt"
+    do {
+        username = try NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue) as String
+    } catch {
+        print("error of read login.txt")
+    }
+    return username
+}
 
 class config {
     

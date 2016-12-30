@@ -22,6 +22,7 @@
 		1872E6B61DF93CAC00A71E7D /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872E6B51DF93CAC00A71E7D /* PhotoView.swift */; };
 		1872E6B81DF93CC900A71E7D /* PhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1872E6B71DF93CC900A71E7D /* PhotoView.xib */; };
 		1876B41A1E10F1CA00A35DD5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876B4191E10F1CA00A35DD5 /* SearchViewController.swift */; };
+		187B709C1E161C7D0017D291 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B709B1E161C7D0017D291 /* AboutViewController.swift */; };
 		188BF1B51E151E63008ACA36 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BF1B41E151E63008ACA36 /* HomeViewController.swift */; };
 		188BF1B71E152780008ACA36 /* FeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BF1B61E152780008ACA36 /* FeedBackViewController.swift */; };
 		18B36C271DFD8935007215E2 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B36C261DFD8935007215E2 /* Toast.swift */; };
@@ -59,6 +60,7 @@
 		1872E6B51DF93CAC00A71E7D /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		1872E6B71DF93CC900A71E7D /* PhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoView.xib; sourceTree = "<group>"; };
 		1876B4191E10F1CA00A35DD5 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		187B709B1E161C7D0017D291 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		188BF1B41E151E63008ACA36 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		188BF1B61E152780008ACA36 /* FeedBackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedBackViewController.swift; sourceTree = "<group>"; };
 		18B36C261DFD8935007215E2 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -114,7 +116,6 @@
 			children = (
 				186FE1551E02CC6E006EBCF4 /* AccessoryView.swift */,
 				186FE1561E02CC6E006EBCF4 /* AccessoryView.xib */,
-				185DB3441E123CD600415CE0 /* ChooseTypeViewController.swift */,
 				186FE1591E02CD2C006EBCF4 /* MyTextViewDelegate.swift */,
 			);
 			name = "TextView&Keyboard";
@@ -126,6 +127,27 @@
 				187271591E0D402400708A89 /* FadeAnimation.swift */,
 			);
 			name = Animation;
+			sourceTree = "<group>";
+		};
+		187B709D1E161CB10017D291 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				188BF1B41E151E63008ACA36 /* HomeViewController.swift */,
+				187B709B1E161C7D0017D291 /* AboutViewController.swift */,
+				188BF1B61E152780008ACA36 /* FeedBackViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		187B709E1E1695770017D291 /* MyView */ = {
+			isa = PBXGroup;
+			children = (
+				18BD8BA11DF7B067001F32CC /* NotePaper.swift */,
+				1872E6B51DF93CAC00A71E7D /* PhotoView.swift */,
+				1872E6B71DF93CC900A71E7D /* PhotoView.xib */,
+				18B36C261DFD8935007215E2 /* Toast.swift */,
+			);
+			name = MyView;
 			sourceTree = "<group>";
 		};
 		18BD8B711DF7A822001F32CC = {
@@ -149,24 +171,21 @@
 		18BD8B7C1DF7A822001F32CC /* Trace */ = {
 			isa = PBXGroup;
 			children = (
+				18BD8B7D1DF7A822001F32CC /* AppDelegate.swift */,
+				18BD8B811DF7A822001F32CC /* Main.storyboard */,
+				18BD8B861DF7A822001F32CC /* LaunchScreen.storyboard */,
 				187271581E0D3F2700708A89 /* Animation */,
 				185EA3291E0392730018AFDC /* Config */,
 				186FE1501E02CAE1006EBCF4 /* TextView&Keyboard */,
-				18BD8BA11DF7B067001F32CC /* NotePaper.swift */,
-				1872E6B51DF93CAC00A71E7D /* PhotoView.swift */,
-				1872E6B71DF93CC900A71E7D /* PhotoView.xib */,
-				18BD8B7D1DF7A822001F32CC /* AppDelegate.swift */,
-				18BD8B811DF7A822001F32CC /* Main.storyboard */,
-				186FE14C1E02932B006EBCF4 /* ContentInputViewController.swift */,
-				188BF1B41E151E63008ACA36 /* HomeViewController.swift */,
-				18B36C261DFD8935007215E2 /* Toast.swift */,
-				18417C9E1DFD38DA0033E682 /* RegisterViewController.swift */,
-				18BD8B841DF7A822001F32CC /* Assets.xcassets */,
-				188BF1B61E152780008ACA36 /* FeedBackViewController.swift */,
-				18304CF41E052271003B203B /* DicSetViewController.swift */,
-				1856DF381DFFC82D0009B9EF /* MainPageViewController.swift */,
-				18BD8B861DF7A822001F32CC /* LaunchScreen.storyboard */,
+				187B709D1E161CB10017D291 /* Home */,
+				187B709E1E1695770017D291 /* MyView */,
 				186149661DFAD6C400DE07C9 /* LoginViewController.swift */,
+				18417C9E1DFD38DA0033E682 /* RegisterViewController.swift */,
+				1856DF381DFFC82D0009B9EF /* MainPageViewController.swift */,
+				185DB3441E123CD600415CE0 /* ChooseTypeViewController.swift */,
+				18BD8B841DF7A822001F32CC /* Assets.xcassets */,
+				18304CF41E052271003B203B /* DicSetViewController.swift */,
+				186FE14C1E02932B006EBCF4 /* ContentInputViewController.swift */,
 				1876B4191E10F1CA00A35DD5 /* SearchViewController.swift */,
 				184A5FBC1DFC12C900795327 /* Supporting Files */,
 			);
@@ -301,6 +320,7 @@
 				18417C9F1DFD38DA0033E682 /* RegisterViewController.swift in Sources */,
 				1876B41A1E10F1CA00A35DD5 /* SearchViewController.swift in Sources */,
 				186FE15A1E02CD2C006EBCF4 /* MyTextViewDelegate.swift in Sources */,
+				187B709C1E161C7D0017D291 /* AboutViewController.swift in Sources */,
 				188BF1B51E151E63008ACA36 /* HomeViewController.swift in Sources */,
 				18BD8B7E1DF7A822001F32CC /* AppDelegate.swift in Sources */,
 				186149671DFAD6C400DE07C9 /* LoginViewController.swift in Sources */,

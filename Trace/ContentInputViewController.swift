@@ -21,6 +21,23 @@ class ContentInputViewController: UIViewController {
 
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let screenWidth = UIScreen.main.bounds.width
+        let textViewWidth:CGFloat = screenWidth - 49 - 20
+        let textViewHeight:CGFloat = getTextViewHight()
+        text.frame = CGRect(x: 49, y: 60, width: textViewWidth, height: textViewHeight)
+        
+        
+        let sendButtonWidth = sendButton.frame.width
+        let sendButtonHeight = sendButton.frame.height
+        let sendX = screenWidth - 20 - sendButtonWidth
+        let sendY = 58 - sendButtonHeight
+        sendButton.frame.origin.x = sendX
+        sendButton.frame.origin.y = sendY
+    }
+    
     @IBAction func finishClick(_ sender: UIButton) {
         //判断textview不是空后写入文件   
         if text.text == "" {
@@ -58,8 +75,22 @@ class ContentInputViewController: UIViewController {
         }
     }
     
+    //计算textview的height值
+    func getTextViewHight() -> CGFloat {
+        let viewBounds = UIScreen.main.bounds
+        var currentY:CGFloat = 60
+        while currentY < viewBounds.height{
+            currentY += 32
+        }
+        currentY -= 30
+        let offset:CGFloat = 0 //设置容差调整
+        let textViewHight = currentY + offset - 59
+        return textViewHight
+    }
+    
     var keyboard = TextViewKeyBoard()
     @IBOutlet var text: UITextView!
+    @IBOutlet var sendButton: UIButton!
     
     //触摸关闭键盘
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
