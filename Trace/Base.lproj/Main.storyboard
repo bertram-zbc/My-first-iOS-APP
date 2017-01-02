@@ -662,41 +662,31 @@
                                 <rect key="frame" x="318" y="121" width="36" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
-                                <state key="normal" title="more&gt;">
-                                    <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <state key="normal" title="more&gt;"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e89-ul-Y2f">
                                 <rect key="frame" x="318" y="225" width="36" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
-                                <state key="normal" title="more&gt;">
-                                    <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <state key="normal" title="more&gt;"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdW-4M-1bB">
                                 <rect key="frame" x="318" y="424" width="36" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
-                                <state key="normal" title="more&gt;">
-                                    <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <state key="normal" title="more&gt;"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9a-2k-i63">
                                 <rect key="frame" x="318" y="516" width="36" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
-                                <state key="normal" title="more&gt;">
-                                    <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <state key="normal" title="more&gt;"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRL-LB-W4C">
                                 <rect key="frame" x="318" y="324" width="36" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
-                                <state key="normal" title="more&gt;">
-                                    <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <state key="normal" title="more&gt;"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -763,12 +753,55 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="sendButton" destination="pbA-eS-sZG" id="75C-4H-dHN"/>
                         <outlet property="text" destination="9Y8-tO-DvA" id="ium-ZR-ssC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VIi-6r-DOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2656.8000000000002" y="-484.40779610194909"/>
+            <point key="canvasLocation" x="2754" y="-484"/>
+        </scene>
+        <!--Dictionary View Controller-->
+        <scene sceneID="7cY-Hv-peK">
+            <objects>
+                <viewController storyboardIdentifier="DictionaryViewController" id="9GI-Z0-Rtx" customClass="DictionaryViewController" customModule="Trace" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e3I-cd-GKE"/>
+                        <viewControllerLayoutGuide type="bottom" id="JxW-bz-jkc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZSb-SH-dMD" customClass="NotePaper" customModule="Trace" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hGG-V3-7G7">
+                                <rect key="frame" x="49" y="89" width="310" height="576"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="大阪：红叶狩，大自然的调色板。埃及：穿越七千年，只为那一半是海水一半是火焰。婺源：牵着梦境挽住秋风，来篁岭晒一场秋。新奥尔良：不赶路，只漫步。">
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="HYWaiWaiTiJ"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="13" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rhe-DR-muJ" customClass="PhotoView" customModule="Trace" customModuleProvider="target">
+                                <rect key="frame" x="209" y="89" width="150" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.9784440445" green="0.95003456040000001" blue="0.25950872959999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoView" destination="rhe-DR-muJ" id="w61-iA-y38"/>
+                        <outlet property="text" destination="hGG-V3-7G7" id="96L-10-ZWh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BUG-jq-yEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3432.8000000000002" y="-484.40779610194909"/>
         </scene>
         <!--Choose Type View Controller-->
         <scene sceneID="wn6-1T-WIl">

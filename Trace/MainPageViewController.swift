@@ -42,7 +42,7 @@ class MainPageViewController: UIViewController {
         if isDirExist{
             //判断今天的日记是否已经写了
             print(mydir+"已存在")
-            let urls:[String] = fileManager.subpaths(atPath: mydir)!
+            let urls:[String] = try! fileManager.contentsOfDirectory(atPath: mydir)
             var isWrite:Bool = false
             print(urls.count)
             for i in 0..<urls.count{

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import BSImagePicker
+import Photos
 
 class DicSetViewController: UIViewController {
 
@@ -43,11 +45,10 @@ class DicSetViewController: UIViewController {
         DispatchQueue.global().async {
             let fileManager = FileManager.default
             let mydir = documentPath + "/Trace/Document"
-        
             let stringDate = getDate() //获取日期
             let fileDir = stringDate + "&" + self.personal + "&" + self.weather + "&" + self.mood + "&" + self.tag
             let filePath = mydir + "/" + fileDir
-            //print(filePath)
+            print(filePath)
             
             do{
                 try fileManager.createDirectory(atPath: filePath, withIntermediateDirectories: true, attributes: nil)
@@ -56,11 +57,105 @@ class DicSetViewController: UIViewController {
             }
         }
         
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "ContentInputViewController")
-        viewController.transitioningDelegate = self
-        self.present(viewController, animated: true, completion: nil)
+//        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//        let viewController = storyBoard.instantiateViewController(withIdentifier: "ContentInputViewController")
+//        viewController.transitioningDelegate = self
+//        self.present(viewController, animated: true, completion: nil)
         
+        let vc = BSImagePickerViewController()
+        
+        //vc.maxNumberOfSelections = 6  //设置最大选择照片数量
+        
+        //图片选择器逻辑
+        bs_presentImagePickerController(vc, animated: true, select: {
+            (asset: PHAsset) -> Void in
+            //选择某张照片时，不进行操作
+        }, deselect: {(asset: PHAsset) -> Void in
+            //取消选择某张照片，不进行操作
+        }, cancel: {(assets: [PHAsset]) -> Void in
+            //取消选择，删除之前创建的目录
+            
+            DispatchQueue.global().async {
+                let fileManager = FileManager.default
+                let mydir = documentPath + "/Trace/Document"
+                let date:String = getDate()
+                //遍历并查找今天的文件目录并删除
+                //let urls:[String] = fileManager.subpaths(atPath: mydir)!
+                let urls:[String] = try! fileManager.contentsOfDirectory(atPath: mydir)
+                for i in 0..<urls.count{
+                    if urls[i].contains(date){
+                        do{
+                            try fileManager.removeItem(atPath: mydir+"/"+urls[i])
+                        }catch{
+                            print("delete dir error")
+                        }
+                        break
+                    }
+                }
+            }
+            
+            
+        }, finish: {(assets: [PHAsset]) -> Void in
+            //完成选择，将选中的照片复制到文件夹中
+            DispatchQueue.global().async {
+                let fileManager = FileManager.default
+                let mydir = documentPath + "/Trace/Document"
+                let date:String = getDate()
+                //遍历查找今天到文件目录
+                let urls:[String] = try! fileManager.contentsOfDirectory(atPath: mydir)
+                for i in 0..<urls.count{
+                    if urls[i].contains(date){
+                        for j in 0..<assets.count{
+                            //依次遍历图片数组并写入文件
+                            let option = PHContentEditingInputRequestOptions()
+                            option.canHandleAdjustmentData = {(adjustmeta: PHAdjustmentData)
+                                -> Bool in
+                                return true
+                            }
+                            assets[j].requestContentEditingInput(with: option, completionHandler: {
+                                (contentEditingInput: PHContentEditingInput?,info: [AnyHashable: Any]) -> Void in
+                                //获取选中图片的沙盒路径
+                                if let url = contentEditingInput!.fullSizeImageURL{
+                                    //读图片
+                                    let fileHandler = try! FileHandle(forReadingFrom: url)
+                                    let data = fileHandler.readDataToEndOfFile()
+                                    //写图片
+                                    let fileManager = FileManager.default
+                                    let fileDir = mydir + "/" + urls[i] + "/image"
+                                    do{ //创建保存图片目录
+                                        try fileManager.createDirectory(atPath: fileDir, withIntermediateDirectories: true, attributes: nil)
+                                    }catch{
+                                        print("create dir error")
+                                    }
+                                    let filePath = fileDir + "/" + String(j) + ".png"
+                                    let imageData: NSData = NSData(data: data)
+                                    let success = imageData.write(toFile: filePath, atomically: true)
+                                    print(success)
+                                }
+                            })
+                        }
+                        
+                        break
+                    }
+                }
+            }
+            //跳转到ContentInputViewControlller
+            let message:String = "已选择"+String(assets.count)+"张照片"
+            print(message)
+            //更新UI界面必须放到主线程，不然会有问题
+            DispatchQueue.main.async {
+                self.view.makeToast(message, duration: 1.0, position: ToastPosition.bottom)
+            }
+            //等待1秒后跳转
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1.0, execute: {
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = storyBoard.instantiateViewController(withIdentifier: "ContentInputViewController")
+                viewController.transitioningDelegate = self
+                self.present(viewController, animated: true, completion: nil)
+            })
+            
+            
+        }, completion: nil)
         
     }
 

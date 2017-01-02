@@ -30,8 +30,8 @@ class ContentInputViewController: UIViewController {
         text.frame = CGRect(x: 49, y: 60, width: textViewWidth, height: textViewHeight)
         
         
-        let sendButtonWidth = sendButton.frame.width
-        let sendButtonHeight = sendButton.frame.height
+        let sendButtonWidth:CGFloat = sendButton.frame.width
+        let sendButtonHeight:CGFloat = sendButton.frame.height
         let sendX = screenWidth - 20 - sendButtonWidth
         let sendY = 58 - sendButtonHeight
         sendButton.frame.origin.x = sendX
@@ -49,11 +49,11 @@ class ContentInputViewController: UIViewController {
             let mydir = documentPath + "/Trace/Document"
             print(mydir)
             //查询当前路径下所有子目录
-            let urls: [String] = fileManager.subpaths(atPath: mydir)!
-            //print("path")
+            let urls: [String] = try! fileManager.contentsOfDirectory(atPath: mydir)
             for i in 0..<urls.count{
                 //遍历子目录并确定要储存的目录
-                if urls[i].contains(date) && !urls[i].contains("/") {
+                if urls[i].contains(date) {
+                    print(urls[i])
                     let filePath = mydir + "/" + urls[i] + "/content.txt"
                     let isExist = fileManager.fileExists(atPath: filePath)
                     if isExist{
@@ -73,6 +73,14 @@ class ContentInputViewController: UIViewController {
             }
             
         }
+        
+        //TODO 异步上传到服务器
+        
+        //跳转
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "DictionaryViewController")
+        //viewController.transitioningDelegate = self
+        self.present(viewController, animated: true, completion: nil)
     }
     
     //计算textview的height值
