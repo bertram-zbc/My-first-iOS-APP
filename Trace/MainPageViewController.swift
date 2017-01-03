@@ -18,6 +18,7 @@ class MainPageViewController: UIViewController {
 
     @IBOutlet var newDay: UIButton!
     @IBOutlet var passDay: UIButton!
+    @IBOutlet var homeButton: UIButton!
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -30,6 +31,9 @@ class MainPageViewController: UIViewController {
         newDay.frame.origin.y = y_newDay
         passDay.frame.origin.y = y_passDay
         
+        let homeX = UIScreen.main.bounds.width - 20 - homeButton.frame.width
+        let homeY = 57 - homeButton.frame.height
+        homeButton.frame.origin = CGPoint(x: homeX, y: homeY)
     }
     
     //点击记录新的一天的按钮
@@ -54,12 +58,15 @@ class MainPageViewController: UIViewController {
             }
             if isWrite{
                 //已经写过了，跳转到其他viewcontroller
-                //TODO
-                print("今天写过了")
+                //print("今天写过了")
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = storyBoard.instantiateViewController(withIdentifier: "DictionaryViewController")
+                viewController.transitioningDelegate = self
+                self.present(viewController, animated: true, completion: nil)
+                
             } else{
                //还没写过
-                
-                print("今天还没写")
+                //print("今天还没写")
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = storyBoard.instantiateViewController(withIdentifier: "ChooseTypeViewController")
                 viewController.transitioningDelegate = self

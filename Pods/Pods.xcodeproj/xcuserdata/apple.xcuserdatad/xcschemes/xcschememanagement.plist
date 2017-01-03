@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Popover.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UIImageViewModeScaleAspect.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,7 +42,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1A67BED957657A546A7A790695CEA143</key>
+		<key>560B34CB98FAFED3D1A8E6F3AF4596E3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>896646D8B5BA16E8A4500E59D6597272</key>
 		<dict>
 			<key>primary</key>
 			<true/>

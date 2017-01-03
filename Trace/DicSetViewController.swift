@@ -287,6 +287,9 @@ class DicSetViewController: UIViewController {
         tag = "complain"
     }
     
+    @IBAction func returnSwipe(_ sender: UISwipeGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
+    }
     
 }
 

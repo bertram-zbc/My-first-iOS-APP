@@ -56,6 +56,7 @@ class NotePaper: UIView {
         while currentY < viewBounds.height{
             context!.addRect(CGRect(x: startX, y: currentY, width: lineWidth, height: 1))
             currentY += 2 + lineGap
+            //print(currentY)
         }
         currentY = currentY - lineGap
         context!.addRect(CGRect(x: startX, y: currentY, width: lineWidth, height: 1))

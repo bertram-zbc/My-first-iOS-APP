@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3f3-Z8-kfY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xlB-Gb-PmO">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -17,7 +17,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Trace" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Trace" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -60,7 +60,7 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roU-9x-D4P">
-                                <rect key="frame" x="139" y="319" width="97" height="30"/>
+                                <rect key="frame" x="139" y="320" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Jxm-Qm-qeJ"/>
                                     <constraint firstAttribute="width" constant="97" id="hR4-LE-IgX"/>
@@ -162,25 +162,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WA-BK-mjB">
-                                <rect key="frame" x="172" y="109" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WA-BK-mjB">
+                                <rect key="frame" x="163" y="191" width="48" height="40"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="20"/>
                                 <state key="normal" title="同步"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qok-rO-0nR">
-                                <rect key="frame" x="172" y="174" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="关于"/>
                                 <connections>
-                                    <segue destination="ZKu-J1-JPl" kind="popoverPresentation" popoverAnchorView="qok-rO-0nR" id="SFC-FW-XtY">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="syncClick:" destination="XyE-6V-Mc4" eventType="touchUpInside" id="Y5y-Hj-jkw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bW-PS-dVL">
-                                <rect key="frame" x="172" y="418" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bW-PS-dVL">
+                                <rect key="frame" x="166" y="386" width="43" height="30"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="20"/>
                                 <state key="normal" title="注销"/>
+                                <connections>
+                                    <action selector="logoutClick:" destination="XyE-6V-Mc4" eventType="touchUpInside" id="zc0-IM-iQY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25s-CD-4wg">
                                 <rect key="frame" x="329" y="28" width="30" height="30"/>
@@ -190,19 +186,49 @@
                                     <action selector="homeClick:" destination="XyE-6V-Mc4" eventType="touchUpInside" id="E9d-wU-dHR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7M-HS-Yes">
-                                <rect key="frame" x="172" y="280" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7M-HS-Yes">
+                                <rect key="frame" x="166" y="318" width="43" height="30"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="20"/>
                                 <state key="normal" title="反馈"/>
                                 <connections>
-                                    <segue destination="JZJ-9f-ezj" kind="show" id="cg3-6p-4QU"/>
+                                    <action selector="feedbackClick:" destination="XyE-6V-Mc4" eventType="touchUpInside" id="ljg-kz-wxU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qok-rO-0nR">
+                                <rect key="frame" x="160" y="258" width="55" height="30"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="20"/>
+                                <state key="normal" title="关于"/>
+                                <connections>
+                                    <action selector="aboutClick:" destination="XyE-6V-Mc4" eventType="touchUpInside" id="nEo-kl-1pw"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="qok-rO-0nR" firstAttribute="top" secondItem="J6z-p7-50x" secondAttribute="topMargin" constant="255" id="2ex-tO-tWq"/>
+                            <constraint firstItem="qok-rO-0nR" firstAttribute="centerX" secondItem="J6z-p7-50x" secondAttribute="centerX" id="3a2-dw-f2N"/>
+                            <constraint firstItem="6bW-PS-dVL" firstAttribute="centerX" secondItem="J6z-p7-50x" secondAttribute="centerX" id="ACO-7z-qsh"/>
+                            <constraint firstItem="9WA-BK-mjB" firstAttribute="top" secondItem="J6z-p7-50x" secondAttribute="topMargin" constant="191" id="DyO-Ip-po9"/>
+                            <constraint firstItem="r7M-HS-Yes" firstAttribute="top" secondItem="J6z-p7-50x" secondAttribute="topMargin" constant="319" id="PV1-ga-fBA"/>
+                            <constraint firstItem="6bW-PS-dVL" firstAttribute="top" secondItem="J6z-p7-50x" secondAttribute="topMargin" constant="384" id="SdX-NR-Tg3"/>
+                            <constraint firstItem="9WA-BK-mjB" firstAttribute="centerX" secondItem="J6z-p7-50x" secondAttribute="centerX" id="VL3-0T-ivw"/>
+                            <constraint firstItem="r7M-HS-Yes" firstAttribute="centerX" secondItem="J6z-p7-50x" secondAttribute="centerX" id="bfP-mF-r6V"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="gKd-DZ-BOF" appends="YES" id="j2K-xY-rIT"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="homeButton" destination="25s-CD-4wg" id="woe-Df-I1y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bg3-Uw-rQv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="gKd-DZ-BOF">
+                    <connections>
+                        <action selector="swipeReturn:" destination="XyE-6V-Mc4" id="hzc-4e-wWL"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-807.20000000000005" y="804.64767616191909"/>
         </scene>
@@ -508,6 +534,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="homeButton" destination="9uV-nC-0sW" id="nL1-8t-gNs"/>
                         <outlet property="newDay" destination="jeq-Xz-7bA" id="cIz-Ch-pbX"/>
                         <outlet property="passDay" destination="uGP-46-Rfp" id="HHc-Kl-B2K"/>
                     </connections>
@@ -529,20 +556,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="日期或标签" textAlignment="natural" minimumFontSize="17" background="textside" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7m8-WA-mhN" customClass="Sear">
-                                <rect key="frame" x="45" y="64" width="178" height="30"/>
+                                <rect key="frame" x="45" y="64" width="223" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPW-cn-nGQ">
-                                <rect key="frame" x="245" y="64" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="20"/>
-                                <state key="normal" title="搜索" backgroundImage="searchButton">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="游记" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qh1-eP-EkS">
                                 <rect key="frame" x="45" y="122" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -564,6 +583,9 @@
                                 <state key="normal" title="Title1">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="titleClick:" destination="Ps2-wI-XPg" eventType="touchUpInside" id="KHg-fV-7Ef"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvn-mq-8kT">
                                 <rect key="frame" x="72" y="287" width="287" height="30"/>
@@ -572,6 +594,9 @@
                                 <state key="normal" title="Title2">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="titleClick:" destination="Ps2-wI-XPg" eventType="touchUpInside" id="wwP-oG-NEQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fu1-3W-gWe">
                                 <rect key="frame" x="72" y="387" width="287" height="30"/>
@@ -580,6 +605,9 @@
                                 <state key="normal" title="Title2">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="titleClick:" destination="Ps2-wI-XPg" eventType="touchUpInside" id="b3O-jU-dPC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Usn-SO-z7m">
                                 <rect key="frame" x="72" y="479" width="287" height="30"/>
@@ -588,6 +616,9 @@
                                 <state key="normal" title="Title2">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="titleClick:" destination="Ps2-wI-XPg" eventType="touchUpInside" id="Bb0-ua-7hU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0d-dq-xMO">
                                 <rect key="frame" x="72" y="572" width="287" height="30"/>
@@ -596,6 +627,9 @@
                                 <state key="normal" title="Title2">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="titleClick:" destination="Ps2-wI-XPg" eventType="touchUpInside" id="yuw-GC-aj6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r21-Vm-agX">
                                 <rect key="frame" x="72" y="160" width="287" height="15"/>
@@ -604,6 +638,9 @@
                                 <state key="normal" title="Title1">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="titleClick:" destination="Ps2-wI-XPg" eventType="touchUpInside" id="RIv-Ke-M40"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXa-3Z-BQt">
                                 <rect key="frame" x="72" y="183" width="287" height="30"/>
@@ -612,6 +649,9 @@
                                 <state key="normal" title="Title2">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="titleClick:" destination="Ps2-wI-XPg" eventType="touchUpInside" id="nCf-aG-n9D"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="生活" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oE8-lN-gr8">
                                 <rect key="frame" x="45" y="325" width="97" height="30"/>
@@ -627,6 +667,9 @@
                                 <state key="normal" title="Title1">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="titleClick:" destination="Ps2-wI-XPg" eventType="touchUpInside" id="UoD-VR-fiP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNo-rb-Yzj">
                                 <rect key="frame" x="72" y="456" width="287" height="15"/>
@@ -635,6 +678,9 @@
                                 <state key="normal" title="Title1">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="titleClick:" destination="Ps2-wI-XPg" eventType="touchUpInside" id="9oA-0X-odO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auL-HL-J9x">
                                 <rect key="frame" x="72" y="549" width="287" height="15"/>
@@ -643,6 +689,9 @@
                                 <state key="normal" title="Title1">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="titleClick:" destination="Ps2-wI-XPg" eventType="touchUpInside" id="Kvl-u1-f8M"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="感悟" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cPa-Yk-bH3">
                                 <rect key="frame" x="45" y="425" width="97" height="30"/>
@@ -688,31 +737,126 @@
                                 <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
                                 <state key="normal" title="more&gt;"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPW-cn-nGQ">
+                                <rect key="frame" x="287" y="64" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="20"/>
+                                <state key="normal" title="搜索" backgroundImage="searchButton">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ASF-tI-iqH" appends="YES" id="u7H-Qh-zVT"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="complain1" destination="auL-HL-J9x" id="L7D-Xh-5ev"/>
                         <outlet property="complain2" destination="b0d-dq-xMO" id="qFZ-HX-b4c"/>
+                        <outlet property="complainMore" destination="h9a-2k-i63" id="O9l-qL-eiT"/>
                         <outlet property="complainTextField" destination="5Vh-ch-qIK" id="tpn-eE-yW9"/>
                         <outlet property="essay1" destination="qv2-3c-lUK" id="Fw6-IB-zuO"/>
                         <outlet property="essay2" destination="Nvn-mq-8kT" id="3kt-2j-Cz7"/>
+                        <outlet property="essayMore" destination="e89-ul-Y2f" id="bDF-oO-Dyy"/>
                         <outlet property="essayTextField" destination="x83-cQ-wbH" id="GkM-Lk-PbJ"/>
                         <outlet property="life1" destination="rGC-rj-HN3" id="n8y-9H-03H"/>
                         <outlet property="life2" destination="Fu1-3W-gWe" id="mZ2-o5-hFM"/>
+                        <outlet property="lifeMore" destination="dRL-LB-W4C" id="YcZ-fv-ERV"/>
                         <outlet property="lifeTextField" destination="oE8-lN-gr8" id="Od8-mS-oMH"/>
+                        <outlet property="searchButton" destination="rPW-cn-nGQ" id="rDP-Kg-nrK"/>
                         <outlet property="searchTextField" destination="7m8-WA-mhN" id="sXc-VP-whD"/>
                         <outlet property="think1" destination="UNo-rb-Yzj" id="8nv-6A-JeS"/>
                         <outlet property="think2" destination="Usn-SO-z7m" id="9mt-CZ-r3G"/>
+                        <outlet property="thinkMore" destination="vdW-4M-1bB" id="xL3-QB-v0N"/>
                         <outlet property="thinkTextField" destination="cPa-Yk-bH3" id="7mh-1F-kbN"/>
                         <outlet property="trip1" destination="r21-Vm-agX" id="GcE-yr-v2d"/>
                         <outlet property="trip2" destination="NXa-3Z-BQt" id="FU6-1p-hcb"/>
+                        <outlet property="tripMore" destination="qYM-wL-V5Q" id="fUF-pp-UXa"/>
                         <outlet property="tripTextField" destination="qh1-eP-EkS" id="8lV-9h-Kc6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtL-Yg-ek9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="ASF-tI-iqH">
+                    <connections>
+                        <action selector="returnSwipe:" destination="Ps2-wI-XPg" id="h0e-Gg-3Er"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1286" y="210"/>
+            <point key="canvasLocation" x="1286" y="208"/>
+        </scene>
+        <!--Search After View Controller-->
+        <scene sceneID="YxF-E9-oat">
+            <objects>
+                <viewController storyboardIdentifier="SearchAfterViewController" id="Nlx-RD-qkG" customClass="SearchAfterViewController" customModule="Trace" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GWT-i0-V47"/>
+                        <viewControllerLayoutGuide type="bottom" id="xht-H4-bxv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GNv-ck-1uU" customClass="NotePaper" customModule="Trace" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uvq-Py-kxo">
+                                <rect key="frame" x="49" y="91" width="310" height="576"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="大阪：红叶狩，大自然的调色板。埃及：穿越七千年，只为那一半是海水一半是火焰。婺源：牵着梦境挽住秋风，来篁岭晒一场秋。新奥尔良：不赶路，只漫步。">
+                                        <attributes>
+                                            <font key="NSFont" size="20" name="HYWaiWaiTiJ"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="13" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l1J-p0-ff1" customClass="PhotoView" customModule="Trace" customModuleProvider="target">
+                                <rect key="frame" x="209" y="89" width="150" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.9784440445" green="0.95003456040000001" blue="0.25950872959999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2017-01-03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIe-Zl-F91">
+                                <rect key="frame" x="49" y="60" width="89" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sunny" translatesAutoresizingMaskIntoConstraints="NO" id="BL9-hA-wiu">
+                                <rect key="frame" x="192" y="56" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="心情大好" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gos-6s-AVI">
+                                <rect key="frame" x="291" y="60" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Zve-Jp-gUn" appends="YES" id="KO4-Td-HAb"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="jIe-Zl-F91" id="mHW-CO-THH"/>
+                        <outlet property="moodLabel" destination="Gos-6s-AVI" id="xrV-lO-PZl"/>
+                        <outlet property="photoView" destination="l1J-p0-ff1" id="KPf-Mx-cgK"/>
+                        <outlet property="text" destination="Uvq-Py-kxo" id="y8o-dE-8Nc"/>
+                        <outlet property="weatherImage" destination="BL9-hA-wiu" id="OaG-nu-QPR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hRy-8A-Ekh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Zve-Jp-gUn">
+                    <connections>
+                        <action selector="returnSwipe:" destination="Nlx-RD-qkG" id="cy9-DZ-4Ta"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2005.5999999999999" y="206.44677661169416"/>
         </scene>
         <!--Content Input View Controller-->
         <scene sceneID="6Fk-F5-yQ4">
@@ -759,7 +903,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VIi-6r-DOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2754" y="-484"/>
+            <point key="canvasLocation" x="2702" y="-484"/>
         </scene>
         <!--Dictionary View Controller-->
         <scene sceneID="7cY-Hv-peK">
@@ -791,15 +935,45 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.9784440445" green="0.95003456040000001" blue="0.25950872959999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2017-01-03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="814-zj-L2c">
+                                <rect key="frame" x="49" y="60" width="89" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="心情大好" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nao-gi-bB3">
+                                <rect key="frame" x="291" y="60" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sunny" translatesAutoresizingMaskIntoConstraints="NO" id="xb3-R8-20b">
+                                <rect key="frame" x="192" y="56" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="IxE-QC-DqU" appends="YES" id="qM5-en-nD3"/>
+                        </connections>
                     </view>
                     <connections>
+                        <outlet property="dateLabel" destination="814-zj-L2c" id="32o-y6-74W"/>
+                        <outlet property="moodLabel" destination="nao-gi-bB3" id="o7B-q2-fKI"/>
                         <outlet property="photoView" destination="rhe-DR-muJ" id="w61-iA-y38"/>
                         <outlet property="text" destination="hGG-V3-7G7" id="96L-10-ZWh"/>
+                        <outlet property="weatherImage" destination="xb3-R8-20b" id="8R8-H0-7pU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUG-jq-yEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="IxE-QC-DqU">
+                    <connections>
+                        <action selector="returnSwipe:" destination="9GI-Z0-Rtx" id="XVW-BA-3m2"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3432.8000000000002" y="-484.40779610194909"/>
         </scene>
@@ -815,34 +989,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaY-Wt-cNx">
-                                <rect key="frame" x="172" y="195" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="图文"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaY-Wt-cNx">
+                                <rect key="frame" x="157" y="191" width="61" height="30"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="20"/>
+                                <state key="normal" title="图文">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="PicEssay:" destination="EBy-UO-hFd" eventType="touchUpInside" id="0fF-q5-ISb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7v-pt-NuM">
-                                <rect key="frame" x="172" y="258" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="视频"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7v-pt-NuM">
+                                <rect key="frame" x="164" y="258" width="46" height="30"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="20"/>
+                                <state key="normal" title="视频">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="video:" destination="EBy-UO-hFd" eventType="touchUpInside" id="gAf-vu-vmj"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCc-N2-Qvs">
-                                <rect key="frame" x="172" y="318" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="音频"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="he3-Yf-dRm">
-                                <rect key="frame" x="173" y="374" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="文"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCc-N2-Qvs">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="20"/>
+                                <state key="normal" title="音频">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="oaY-Wt-cNx" firstAttribute="centerX" secondItem="2Xw-Si-2Hb" secondAttribute="centerX" id="Ba3-5D-XLv"/>
+                            <constraint firstItem="dCc-N2-Qvs" firstAttribute="centerX" secondItem="2Xw-Si-2Hb" secondAttribute="centerX" id="Ijf-ht-HB2"/>
+                            <constraint firstItem="w7v-pt-NuM" firstAttribute="centerX" secondItem="2Xw-Si-2Hb" secondAttribute="centerX" id="giP-iO-kRz"/>
+                            <constraint firstItem="dCc-N2-Qvs" firstAttribute="top" secondItem="2Xw-Si-2Hb" secondAttribute="topMargin" constant="319" id="kR9-Ot-IkA"/>
+                            <constraint firstItem="oaY-Wt-cNx" firstAttribute="top" secondItem="2Xw-Si-2Hb" secondAttribute="topMargin" constant="191" id="oEE-Am-tJl"/>
+                            <constraint firstItem="w7v-pt-NuM" firstAttribute="top" secondItem="2Xw-Si-2Hb" secondAttribute="topMargin" constant="255" id="vPl-IX-zgd"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="8Q1-z7-ngF" appends="YES" id="SXg-Pw-WjR"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="videoButton" destination="w7v-pt-NuM" id="ifh-b0-8FG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DbU-HE-diR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="8Q1-z7-ngF">
+                    <connections>
+                        <action selector="returnSwipe:" destination="EBy-UO-hFd" id="RnY-g0-lt5"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1285.5999999999999" y="-484.40779610194909"/>
         </scene>
@@ -1029,9 +1227,8 @@
                                     <outletCollection property="gestureRecognizers" destination="6CR-1l-JaK" appends="YES" id="B7V-YB-paP"/>
                                 </connections>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahf-7O-nQw">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahf-7O-nQw">
                                 <rect key="frame" x="123" y="508" width="129" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HYWaiWaiTiJ" family="HYWaiWaiTiJ" pointSize="20"/>
                                 <state key="normal" title="选择照片" backgroundImage="textside">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1098,6 +1295,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Ahf-7O-nQw" firstAttribute="top" secondItem="f7l-Vf-AMT" secondAttribute="bottom" constant="488" id="1fK-CD-fjY"/>
+                            <constraint firstItem="Ahf-7O-nQw" firstAttribute="centerX" secondItem="D7S-gW-4qg" secondAttribute="centerX" id="nb8-DS-51k"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="bD0-Hm-Yrd" appends="YES" id="Jsi-kD-IxM"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="chooseImageBadMood" destination="Qk2-ff-hOQ" id="GkD-7t-Wqj"/>
@@ -1187,6 +1391,11 @@
                         <action selector="complainClick:" destination="No4-VT-ESB" id="fcv-TA-Wym"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="bD0-Hm-Yrd">
+                    <connections>
+                        <action selector="returnSwipe:" destination="No4-VT-ESB" id="f4D-pq-Y3s"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1956" y="-484"/>
         </scene>

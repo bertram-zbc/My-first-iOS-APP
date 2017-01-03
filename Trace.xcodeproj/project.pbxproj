@@ -16,6 +16,7 @@
 		186149671DFAD6C400DE07C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186149661DFAD6C400DE07C9 /* LoginViewController.swift */; };
 		186AA9031E1A27C700B8BD3C /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AA9021E1A27C700B8BD3C /* DictionaryViewController.swift */; };
 		186AA9041E1A2E0800B8BD3C /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872E6B51DF93CAC00A71E7D /* PhotoView.swift */; };
+		186C35521E1B7C2A00BB2453 /* SearchAfterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C35511E1B7C2A00BB2453 /* SearchAfterViewController.swift */; };
 		186FE14D1E02932B006EBCF4 /* ContentInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186FE14C1E02932B006EBCF4 /* ContentInputViewController.swift */; };
 		186FE1571E02CC6E006EBCF4 /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186FE1551E02CC6E006EBCF4 /* AccessoryView.swift */; };
 		186FE1581E02CC6E006EBCF4 /* AccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186FE1561E02CC6E006EBCF4 /* AccessoryView.xib */; };
@@ -56,6 +57,7 @@
 		185EA32A1E03928C0018AFDC /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		186149661DFAD6C400DE07C9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		186AA9021E1A27C700B8BD3C /* DictionaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryViewController.swift; path = ../DictionaryViewController.swift; sourceTree = "<group>"; };
+		186C35511E1B7C2A00BB2453 /* SearchAfterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAfterViewController.swift; sourceTree = "<group>"; };
 		186FE14C1E02932B006EBCF4 /* ContentInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentInputViewController.swift; sourceTree = "<group>"; };
 		186FE1551E02CC6E006EBCF4 /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
 		186FE1561E02CC6E006EBCF4 /* AccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccessoryView.xib; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				186FE14C1E02932B006EBCF4 /* ContentInputViewController.swift */,
 				186AA9021E1A27C700B8BD3C /* DictionaryViewController.swift */,
 				1876B4191E10F1CA00A35DD5 /* SearchViewController.swift */,
+				186C35511E1B7C2A00BB2453 /* SearchAfterViewController.swift */,
 				184A5FBC1DFC12C900795327 /* Supporting Files */,
 			);
 			path = Trace;
@@ -403,6 +406,7 @@
 				188BF1B51E151E63008ACA36 /* HomeViewController.swift in Sources */,
 				18BD8B7E1DF7A822001F32CC /* AppDelegate.swift in Sources */,
 				186149671DFAD6C400DE07C9 /* LoginViewController.swift in Sources */,
+				186C35521E1B7C2A00BB2453 /* SearchAfterViewController.swift in Sources */,
 				186AA9031E1A27C700B8BD3C /* DictionaryViewController.swift in Sources */,
 				1872715A1E0D402400708A89 /* FadeAnimation.swift in Sources */,
 			);

@@ -1,23 +1,20 @@
 //
-//  DictionaryViewController.swift
+//  SearchAfterViewController.swift
 //  Trace
 //
-//  Created by Apple on 2017/1/2.
+//  Created by Apple on 2017/1/3.
 //  Copyright © 2017年 Apple. All rights reserved.
 //
 
 import UIKit
 
-class DictionaryViewController: UIViewController {
+class SearchAfterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        text.font = UIFont.init(name: "HYWaiWaiTiJ", size: 17.0)
-        
         
         getSettings() //获取日记的一些设置信息
-        
+
         DispatchQueue.main.async {
             self.prepareText()//处理文本
         }
@@ -25,7 +22,6 @@ class DictionaryViewController: UIViewController {
         DispatchQueue.main.async {
             self.getImage() //加载图片
         }
-        
     }
 
     override func viewDidLayoutSubviews() {
@@ -51,8 +47,6 @@ class DictionaryViewController: UIViewController {
         let moodX = UIScreen.main.bounds.width - 20 - moodLabel.frame.width
         moodLabel.frame.origin = CGPoint(x: moodX, y: 70)
     }
-
-    
     
     @IBOutlet var photoView: PhotoView!
     @IBOutlet var text: UITextView!
@@ -61,10 +55,12 @@ class DictionaryViewController: UIViewController {
     @IBOutlet var weatherImage: UIImageView!
     @IBOutlet var moodLabel: UILabel!
     
+    var dateFrom: String = String() //接收SearchViewController的数据
+    
     
     //获取日记的一些设置信息
     func getSettings() {
-        let date: String = getDate()
+        let date: String = dateFrom
         let fileManager = FileManager.default
         let mydir = documentPath + "/Trace/Document"
         let urls: [String] = try! fileManager.contentsOfDirectory(atPath: mydir)
@@ -89,12 +85,11 @@ class DictionaryViewController: UIViewController {
     }
     
     //加载image
-    func getImage() {
+    func getImage(){
         var imagePath = String()
-        let date: String = getDate()
+        let date: String = dateFrom
         let fileManager = FileManager.default
         let mydir = documentPath + "/Trace/Document"
-        print(mydir)
         let urls: [String] = try! fileManager.contentsOfDirectory(atPath: mydir)
         //得到当前图片文件目录
         for i in 0..<urls.count {
@@ -121,7 +116,6 @@ class DictionaryViewController: UIViewController {
         }else{
             self.photoView.p2.alpha = 0
         }
-        
     }
     
     func prepareText() {
@@ -146,11 +140,10 @@ class DictionaryViewController: UIViewController {
         text.text = newStr
     }
     
-    
     //从文件中获取字符串
     func getText() -> String {
         var content: String = String()
-        let date: String = getDate()
+        let date: String = dateFrom
         let fileManager = FileManager.default
         let mydir = documentPath + "/Trace/Document"
         let urls: [String] = try! fileManager.contentsOfDirectory(atPath: mydir)
@@ -168,6 +161,7 @@ class DictionaryViewController: UIViewController {
         return content
     }
     
+    
     //计算textview的height值
     func getTextViewHight() -> CGFloat {
         let viewBounds = UIScreen.main.bounds
@@ -182,16 +176,13 @@ class DictionaryViewController: UIViewController {
     }
     
     @IBAction func returnSwipe(_ sender: UISwipeGestureRecognizer) {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "MainPageViewController")
-        viewController.transitioningDelegate = self
-        self.present(viewController, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
-    
+
 }
 
 //设置转场动画代理
-extension DictionaryViewController: UIViewControllerTransitioningDelegate{
+extension SearchAfterViewController: UIViewControllerTransitioningDelegate{
     
     //present动画效果
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {

@@ -76,10 +76,11 @@ class ContentInputViewController: UIViewController {
         
         //TODO 异步上传到服务器
         
+        
         //跳转
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyBoard.instantiateViewController(withIdentifier: "DictionaryViewController")
-        //viewController.transitioningDelegate = self
+        viewController.transitioningDelegate = self
         self.present(viewController, animated: true, completion: nil)
     }
     
@@ -105,4 +106,17 @@ class ContentInputViewController: UIViewController {
         view.endEditing(true)
     }
     
+}
+
+//设置转场动画代理
+extension ContentInputViewController: UIViewControllerTransitioningDelegate{
+    
+    //present动画效果
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return FadeAnimation()
+    }
+    //dismiss动画效果
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return FadeAnimation()
+    }
 }
