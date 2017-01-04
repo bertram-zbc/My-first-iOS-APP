@@ -54,6 +54,8 @@ class FeedBackViewController: UIViewController {
     //使用post异步发送数据
     @IBAction func send(_ sender: UIButton) {
         
+        view.endEditing(true)
+        
         if textView.text == "" || textView.text == "请输入您的宝贵意见!" {
             self.view.makeToast("写点什么再提交吧")
         } else {
@@ -96,6 +98,11 @@ class FeedBackViewController: UIViewController {
             }
         }
         dataTask.resume()
+    }
+    
+    //触摸关闭键盘
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
 }

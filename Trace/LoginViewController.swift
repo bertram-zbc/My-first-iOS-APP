@@ -23,8 +23,8 @@ class LoginViewController: UIViewController {
         
         setTextFieldBound() //设置textfiled文字与边框距离
         
-        userName.text = "user1"
-        passWord.text = "123456"
+        //userName.text = "user1"
+        //passWord.text = "123456"
     }
     
     //设置控件布局使适应各类尺寸屏幕

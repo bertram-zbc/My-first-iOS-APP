@@ -98,8 +98,8 @@ func getUserName() -> String {
 
 class config {
     
-    public let ip: String = "192.168.253.1" //服务器IP
-    public let port: String = "8888"  //端口号
+    public let ip: String = "182.254.220.171" //服务器IP
+    public let port: String = "8000"  //端口号
     
     public var keyboardHight: CGFloat //软键盘高度
     

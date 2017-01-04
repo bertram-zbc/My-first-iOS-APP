@@ -33,6 +33,8 @@ class HomeViewController: UIViewController {
     
     //同步按钮
     @IBAction func syncClick(_ sender: UIButton) {
+        
+        self.view.makeToast("正在后台同步")
         //TODO
     }
     

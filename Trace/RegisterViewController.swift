@@ -122,7 +122,10 @@ class RegisterViewController: UIViewController {
                     self.view.makeToast("服务器异常，请稍后重试")
                 }
                 else{
-                    self.view.makeToast("注册成功")
+                    self.view.makeToast("注册成功", duration: 1.0, position: ToastPosition.bottom)
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1.0, execute: {
+                        self.dismiss(animated: true, completion: nil)
+                    })
                 }
             }
             //还没有得到返回的数据，可能是网络连接较慢，也可能是网络异常
@@ -143,7 +146,10 @@ class RegisterViewController: UIViewController {
                         self.view.makeToast("服务器异常，请稍后重试")
                     }
                     else{
-                        self.view.makeToast("注册成功")
+                        self.view.makeToast("注册成功", duration: 1.0, position: ToastPosition.bottom)
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1.0, execute: {
+                            self.dismiss(animated: true, completion: nil)
+                        })
                     }
                 }
             }

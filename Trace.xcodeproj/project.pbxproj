@@ -194,12 +194,12 @@
 				18417C9E1DFD38DA0033E682 /* RegisterViewController.swift */,
 				1856DF381DFFC82D0009B9EF /* MainPageViewController.swift */,
 				185DB3441E123CD600415CE0 /* ChooseTypeViewController.swift */,
-				18BD8B841DF7A822001F32CC /* Assets.xcassets */,
 				18304CF41E052271003B203B /* DicSetViewController.swift */,
 				186FE14C1E02932B006EBCF4 /* ContentInputViewController.swift */,
 				186AA9021E1A27C700B8BD3C /* DictionaryViewController.swift */,
 				1876B4191E10F1CA00A35DD5 /* SearchViewController.swift */,
 				186C35511E1B7C2A00BB2453 /* SearchAfterViewController.swift */,
+				18BD8B841DF7A822001F32CC /* Assets.xcassets */,
 				184A5FBC1DFC12C900795327 /* Supporting Files */,
 			);
 			path = Trace;
