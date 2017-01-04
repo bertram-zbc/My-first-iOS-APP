@@ -447,6 +447,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="7Qq-0U-4yQ" firstAttribute="centerX" secondItem="P0W-tB-Gpn" secondAttribute="centerX" id="0Lt-I4-SYf"/>
                             <constraint firstItem="eoa-Kp-sAY" firstAttribute="top" secondItem="PBN-LN-S6o" secondAttribute="bottom" constant="20" id="1nx-Y2-RjZ"/>
@@ -464,6 +465,9 @@
                             <constraint firstItem="7Qq-0U-4yQ" firstAttribute="top" secondItem="Fgl-Pb-g6Q" secondAttribute="bottom" constant="2" id="wUN-Zf-FZ9"/>
                             <constraint firstItem="RsI-MG-OCM" firstAttribute="top" secondItem="b92-dA-Rs7" secondAttribute="bottom" constant="2" id="zwR-xL-CTt"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="USR-gw-6g3" appends="YES" id="hKG-OM-7NX"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="layoutPassword" destination="20Z-k2-jMi" id="9wl-eh-yeJ"/>
@@ -475,6 +479,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e97-27-lUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="USR-gw-6g3">
+                    <connections>
+                        <action selector="returnSwipe:" destination="aTb-6j-iUd" id="8mt-16-1dn"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-92" y="-242"/>
         </scene>
