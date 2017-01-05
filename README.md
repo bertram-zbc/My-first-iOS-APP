@@ -1,6 +1,6 @@
 # Trace —— 记录每天生活
 
-##配置
+##语言
 iOS：swift
 
 服务器：NodeJs
@@ -19,6 +19,11 @@ iOS：swift
 
 ##文章分类标签
 游记、随笔、生活、感悟、吐槽
+
+##配置说明
+1. 在本机安装CocoaPod
+2. 进入根项目目录
+3. 输入命令`pod update`或者`pod update --verbose --no-repo-update`
 
 ##效果展示
 <img src="http://7xszpw.com1.z0.glb.clouddn.com/iOS/UI/1.png" width=200 height=373/>
