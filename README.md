@@ -24,6 +24,7 @@ iOS：swift
 1. 在本机安装CocoaPod
 2. 进入根项目目录
 3. 输入命令`pod update`或者`pod update --verbose --no-repo-update`
+4. 打开Trace.xcworkspace即可成功编译运行
 
 ##效果展示
 <img src="http://7xszpw.com1.z0.glb.clouddn.com/iOS/UI/1.png" width=200 height=373/>
